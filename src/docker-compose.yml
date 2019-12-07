@@ -1,0 +1,44 @@
+# docker-compose.yml
+version: '3'
+
+volumes:
+
+  pgdata: {}
+  esdata: {}
+
+services:
+
+  web:
+    container_name: web
+    volumes:
+      - .:/code
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    command: python /code/web/manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+      - es
+    env_file: .env
+    ports:
+      - "8000:8000"
+
+  db:
+    container_name: postgres
+    image: postgres
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  es:
+    container_name: elasticsearch
+    image: elasticsearch:7.5.0
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+
