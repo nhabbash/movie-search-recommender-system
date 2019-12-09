@@ -1,3 +1,5 @@
 notes
 **/.DS_Store
 **/__pycache__
+./data/dataset.csv
+./data/parsed_dataset.csv
