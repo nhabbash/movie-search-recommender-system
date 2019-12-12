@@ -18,13 +18,21 @@ $ cd item-recommendation-retrieval-system/src
 ```
 ## Structure
 
-TODO
+
 
 ## Starting the containers
 ```sh
 $ sudo docker-compose build 
 $ sudo docker-compose up
 ```
+
+## Utilities
+```sh
+$ sudo docker-compose run web python3 manage.py startapp {app_name} # Creates {app_name} in the project (after building)
+$ sudo docker exec -it web bash # Entering the web container
+```
+
+
 ## Authors
 
 * [**Nassim Habbash**](https://github.com/dodicin) (808292)
