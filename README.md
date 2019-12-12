@@ -30,6 +30,9 @@ $ sudo docker-compose up
 ```sh
 $ sudo docker-compose run web python3 manage.py startapp {app_name} # Creates {app_name} in the project (after building)
 $ sudo docker exec -it web bash # Entering the web container
+$ python manage.py createsuperuser # Creating super user 
+$ python manage.py makemigrations 
+$ python manage.py migrate
 ```
 
 
