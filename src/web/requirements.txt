@@ -1,4 +1,4 @@
-Django>=2.0
+Django==2.2
 psycopg2>=2.7
 pandas>=0.20.3
 django_elasticsearch_dsl

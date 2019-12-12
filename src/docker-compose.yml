@@ -17,6 +17,7 @@ services:
     command: ./start.sh
     depends_on:
       - db
+      - es
     env_file: .env
     ports:
       - "8000:8000"
@@ -29,4 +30,15 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
+  es:
+    container_name: elasticsearch
+    image: elasticsearch:7.5.0
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+
 
