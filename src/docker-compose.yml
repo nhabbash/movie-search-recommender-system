@@ -16,8 +16,8 @@ services:
       context: ./web/
     command: ./start.sh
     depends_on:
-      - db
-      - es
+      - "db"
+      - "es"
     env_file: .env
     ports:
       - "8000:8000"
@@ -41,4 +41,10 @@ services:
     ports:
       - "9200:9200"
 
-
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.5.0
+    depends_on:
+      - "es"
+    ports:
+      - "5601:5601"

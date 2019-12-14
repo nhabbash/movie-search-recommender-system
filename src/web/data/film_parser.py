@@ -2,6 +2,7 @@ import pandas as pd
 import csv
 import os
 import json
+from datetime import datetime
 
 def get_element(values, word):
     contents = ""
@@ -10,26 +11,28 @@ def get_element(values, word):
         text = values.split("'")
         for element in text:
             if word in element:
-                contents += text[index + 2] + " "
+                contents += text[index + 2] + ", "
             index += 1
     return contents
 
-fields = ['genres', 'id', 'original_language', 'overview', 'spoken_languages', 'title', 'release_date']
-movie_dataset = pd.read_csv('src/web/data/dataset.csv', usecols=fields)
+fields = ['id', 'genres', 'original_language', 'overview', 'spoken_languages', 'title', 'release_date', 'production_companies']
+movie_dataset = pd.read_csv('src/web/data/dataset.csv', usecols=fields, keep_default_na=False)
 
 if not os.path.exists('src/web/data/parsed_dataset.csv'):
     with open('src/web/data/parsed_dataset.csv', 'w', newline='') as file:
         writer = csv.writer(file, delimiter =";")
-        writer.writerow(["id", "title", "overview", 'original_language', 'spoken_languages', 'genres', 'release_date'])
+        writer.writerow(["id", "title", "overview", 'original_language', 'spoken_languages', 'genres', 'release_date', 'production_companies'])
         for index, row in movie_dataset.iterrows():
-
             spoken = get_element(row['spoken_languages'], 'iso')
             genres = get_element(row['genres'], 'name')
+            companies = get_element(row['production_companies'], 'name')
+            
 
-            if 'nan' in str(row['release_date']):
-                date = ""
-            else:
-                date = row['release_date']
+            date = row['release_date']
+            try:
+                date = datetime.strptime(date, '%Y-%m-%d').date()
+            except:
+                date = "1900-01-01"
 
-            if not(row['title'] == "" or row['overview'] == ""):
-                writer.writerow([row['id'], row['title'], row['overview'], row['original_language'], spoken, genres, date])
+            if row['title'] and row['overview']:
+                writer.writerow([row['id'], row['title'], row['overview'], row['original_language'], spoken, genres, date, companies])

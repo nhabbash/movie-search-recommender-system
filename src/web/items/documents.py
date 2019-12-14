@@ -23,5 +23,5 @@ class ItemDocument(Document):
 
         # The fields of the model you want to be indexed in Elasticsearch
         fields = [
-            'date'
+            'release_date'
         ]
