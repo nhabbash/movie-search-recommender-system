@@ -35,6 +35,7 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 $ python init_data.py populate # Populates DB
 $ python init_data.py clear # Clears DB
+$ python manage.py search_index --rebuild # Creates index
 ```
 
 
