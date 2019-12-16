@@ -9,6 +9,9 @@ class Item(models.Model):
     spoken_lan = models.TextField(blank = True)
     genres = models.TextField(blank = True)
     release_date = models.DateField(default = date(1111, 11, 11), blank = True, null = True)
+    production_companies = models.TextField(blank = True)
+    vote_average = models.IntegerField(blank = True)
+    vote_count = models.IntegerField(blank = True)
 
     def __str__(self):
         return self.title
@@ -34,6 +37,9 @@ class Item(models.Model):
                 spoken_lan=row['spoken_languages'],
                 genres=row['genres'],
                 release_date=row['release_date'],
+                production_companies=row['production_companies'],
+                vote_average=row['vote_average'],
+                vote_count=row['vote_count']
             )
             for _, row in movie_dataset.iterrows()
         ], ignore_conflicts=True)

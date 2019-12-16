@@ -12,6 +12,7 @@ class ItemDocument(Document):
     original_lan = fields.TextField(analyzer = my_analyzer)
     spoken_lan = fields.TextField(analyzer = my_analyzer)
     genres = fields.TextField(analyzer = my_analyzer)
+    production_companies=fields.TextField(analyzer = my_analyzer)
 
     class Index:
         name = 'item_index'
@@ -23,5 +24,7 @@ class ItemDocument(Document):
 
         # The fields of the model you want to be indexed in Elasticsearch
         fields = [
-            'release_date'
+            'release_date',
+            'vote_average',
+            'vote_count'
         ]
