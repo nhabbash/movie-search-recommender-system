@@ -2,6 +2,39 @@ from django.db import models
 from datetime import date
 import pandas as pd
 
+class Consumer(models.Model):
+    name = models.TextField(blank = True)
+    interest = models.TextField(blank = True)
+
+    def __str__(self):
+        return self.name
+
+    @classmethod
+    def populate(cls):
+        try:
+            print("Trying clearing DB")
+            cls.objects.all().delete()
+            print(">Done")
+        except Exception as e:
+            print("Error:", e)
+            print("Couldn't clear DB")
+
+        users_dataset = pd.read_csv('./data/users.csv', delimiter = ";", keep_default_na=False)
+
+        print("Populating")
+        cls.objects.bulk_create([
+            cls(
+                name=row['name'],
+                interest=row['interest']
+            )
+            for _, row in users_dataset.iterrows()
+        ], ignore_conflicts=True)
+        print(">Done")
+
+    def get_interest(name):
+        query = Consumer.objects.get(name=name)
+        return getattr(query, 'interest')
+
 class Item(models.Model):
     title = models.TextField(blank = True)
     overview = models.TextField(blank = True)

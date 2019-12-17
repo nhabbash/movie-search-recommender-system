@@ -7,7 +7,7 @@ my_analyzer = analyzer('my_analyzer', tokenizer = 'whitespace', filter=["lowerca
 
 @registry.register_document
 class ItemDocument(Document):
-    title = fields.TextField(analyzer = my_analyzer, similarity = 'boolean')
+    title = fields.TextField(analyzer = my_analyzer)
     overview = fields.TextField(analyzer = my_analyzer)
     original_lan = fields.TextField(analyzer = my_analyzer)
     spoken_lan = fields.TextField(analyzer = my_analyzer)
@@ -18,7 +18,6 @@ class ItemDocument(Document):
         name = 'item_index'
         settings = {'number_of_shards': 1,
                     'number_of_replicas': 0}
-        
 
     class Django:
         model = Item # The model associated with this Document

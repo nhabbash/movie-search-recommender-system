@@ -7,7 +7,7 @@ django.setup()
 
 ## End setup
 
-from items.models import Item
+from items.models import Item, Consumer
 from django.contrib.auth import get_user_model
 
 print("Creating root user if it doesn't exist...")
@@ -18,3 +18,4 @@ User.objects.filter(username='root').exists() or \
 print(">Done")
 
 Item.populate()
+Consumer.populate()
