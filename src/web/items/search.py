@@ -1,26 +1,38 @@
-from elasticsearch_dsl.query import Q, MultiMatch, SF
-from .documents import ItemDocument
-import json
+from django.shortcuts import render
+from items.documents import ItemDocument
+from elasticsearch_dsl.query import Q
 
-def get_search_query(phrase):
+def query(query_text, username):
+
     query = Q(
-        'function_score',
-        query=MultiMatch(
-            fields=['title'],
-            query=phrase
+        "bool",
+        must=[                          # Main query
+                Q({"multi_match":                                   # Query type
+                    {"query": query_text, 
+                    "fields": ['title^2', 'overview'],              # Boosting results in the title field compared to the overview field
+                    "fuzziness": "AUTO",                            # Lets search for words with typos in them
+                    "prefix_length": 2,
+                    "auto_generate_synonyms_phrase_query": "true",  # Generates words synonims if possible in the query (ny = new and york)
+                    "type": "best_fields",
+                    }
+                })
+            ],
+        should=[                        # Personalization query (query expansion)
+                Q({"multi_match":                                   # Query type
+                    {"query": "Fantasy",                            # User genre preference
+                    "fields": ['genres^4', 'overview'],             # Boosting results in the genre field compared to the overview field
+                    "type": "best_fields",
+                    }
+                }),
+                Q({"multi_match":                                   # Query type
+                    {"query": "it",                                 # User language preference
+                    "fields": ['spoken_lan', 'original_lan'],
+                    "type": "best_fields",
+                    }
+                }),
+            ],
+        minimum_should_match = "50%", # Tries to match at least half of the should queries
         )
-    )
 
-    return ItemDocument.search().query(query)
-
-def search(phrase):
-    return get_search_query(phrase).to_queryset()
-
-'''
-    title = fields.TextField(analyzer = my_analyzer)
-    overview = fields.TextField(analyzer = my_analyzer)
-    original_lan = fields.TextField(analyzer = my_analyzer)
-    spoken_lan = fields.TextField(analyzer = my_analyzer)
-    genres = fields.TextField(analyzer = my_analyzer)
-    data = fields.DateField()
-'''
+    items = ItemDocument.search().query(query)
+    return items

@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_elasticsearch_dsl',
-
-    
 ]
 
 MIDDLEWARE = [
@@ -110,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Elasticsearch
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'elasticsearch:9200'
+        'hosts': os.environ.get('COMPOSE_PROJECT_NAME') +'-es:9200'
     },
 }
 

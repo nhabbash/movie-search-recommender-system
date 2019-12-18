@@ -1,13 +1,34 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from datetime import date
 import pandas as pd
 
-class Consumer(models.Model):
-    name = models.TextField(blank = True)
-    interest = models.TextField(blank = True)
+class Profile(models.Model):
+    #user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.TextField(blank = True, null = True)
 
-    def __str__(self):
-        return self.name
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+
+    # Profiling info
+    genre_preferences = models.TextField(blank = True, null = True)
+    history_profile = models.TextField(blank = True, null = True)
+    language = models.TextField(blank = True, null = True)
+
+    ''''
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+        def __str__(self):
+            return self.name
+    '''
 
     @classmethod
     def populate(cls):
@@ -24,15 +45,15 @@ class Consumer(models.Model):
         print("Populating")
         cls.objects.bulk_create([
             cls(
-                name=row['name'],
-                interest=row['interest']
+                username=row['name'],
+                genre_preferences=row['interest']
             )
             for _, row in users_dataset.iterrows()
         ], ignore_conflicts=True)
         print(">Done")
 
     def get_interest(name):
-        query = Consumer.objects.get(name=name)
+        query = Profile.objects.get(name=name)
         return getattr(query, 'interest')
 
 class Item(models.Model):

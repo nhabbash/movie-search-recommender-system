@@ -4,11 +4,14 @@
     <button type="submit" name="search" value="activate">Search</button>
 </form>
   
-  {% for item in items %}
-  
-    {{ item.id }}
-    {{ item.title }}
-  
-    <br>
-  
-  {% endfor %}
+{% load static %}
+
+{% if items %}
+    <ul>
+    {% for item in items %}
+        <li><a href="">{{ item.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No items resulted.</p>
+{% endif %}
