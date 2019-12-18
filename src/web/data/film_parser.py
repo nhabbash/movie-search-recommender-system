@@ -35,6 +35,10 @@ if not os.path.exists('src/web/data/parsed_dataset.csv'):
             except:
                 date = "1900-01-01"
 
+            if not row['id']:
+                row['id'] = max(movie_dataset.id) + 1
+                print(row['id'])
+
             if row['title'] and row['overview']:
                 writer.writerow([row['id'], row['title'], row['overview'], row['original_language'], spoken, 
                         genres, date, companies, row['vote_average'], row['vote_count']])

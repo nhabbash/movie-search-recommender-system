@@ -15,3 +15,6 @@ def search(request):
         items = ""
 
     return render(request, 'items/search.html', {'items': items})
+
+def info(request):
+    print("hello")

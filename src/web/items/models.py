@@ -7,15 +7,18 @@ import pandas as pd
 
 class Profile(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE)
-    username = models.TextField(blank = True, null = True)
+    username = models.TextField(blank = True)
 
     location = models.CharField(max_length=30, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
+    birth_date = models.DateField(blank=True)
 
     # Profiling info
-    genre_preferences = models.TextField(blank = True, null = True)
-    history_profile = models.TextField(blank = True, null = True)
-    language = models.TextField(blank = True, null = True)
+    genre_preferences = models.TextField(blank = True)
+    history_profile = models.TextField(blank = True)
+    language = models.TextField(blank = True)
+
+    def __str__(self):
+        return self.username
 
     ''''
     @receiver(post_save, sender=User)
@@ -45,18 +48,27 @@ class Profile(models.Model):
         print("Populating")
         cls.objects.bulk_create([
             cls(
-                username=row['name'],
-                genre_preferences=row['interest']
+                username=row['username'],
+                location=row['location'],
+                birth_date=row['birth_date'],
+                genre_preferences=row['genre_preferences'],
+                history_profile=row['history_profile'],
+                language=row['language']
             )
             for _, row in users_dataset.iterrows()
         ], ignore_conflicts=True)
         print(">Done")
 
-    def get_interest(name):
-        query = Profile.objects.get(name=name)
-        return getattr(query, 'interest')
+    def get_genre_preferences(name):
+        query = Profile.objects.get(username=name)
+        return getattr(query, 'genre_preferences')
+    
+    def get_language(name):
+        query = Profile.objects.get(username=name)
+        return getattr(query, 'language')
 
 class Item(models.Model):
+    id = models.IntegerField(primary_key=True)
     title = models.TextField(blank = True)
     overview = models.TextField(blank = True)
     original_lan = models.TextField(blank = True)
@@ -85,6 +97,7 @@ class Item(models.Model):
         print("Populating")
         cls.objects.bulk_create([
             cls(
+                id = row['id'],
                 title=row['title'],
                 overview=row['overview'],
                 original_lan=row['original_language'],

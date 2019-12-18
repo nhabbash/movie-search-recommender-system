@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from items.documents import ItemDocument
 from elasticsearch_dsl.query import Q
+from .models import Profile
 
 def query(query_text, username):
+
+    interest = Profile.get_genre_preferences(username)
+    language = Profile.get_language(username)
 
     query = Q(
         "bool",
@@ -19,14 +23,14 @@ def query(query_text, username):
             ],
         should=[                        # Personalization query (query expansion)
                 Q({"multi_match":                                   # Query type
-                    {"query": "Fantasy",                            # User genre preference
+                    {"query": interest,                            # User genre preference
                     "fields": ['genres^4', 'overview'],             # Boosting results in the genre field compared to the overview field
                     "type": "best_fields",
                     }
                 }),
                 Q({"multi_match":                                   # Query type
-                    {"query": "it",                                 # User language preference
-                    "fields": ['spoken_lan', 'original_lan'],
+                    {"query": language,                                 # User language preference
+                    "fields": ['spoken_lan^10', 'original_lan'],
                     "type": "best_fields",
                     }
                 }),
