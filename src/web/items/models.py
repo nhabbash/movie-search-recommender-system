@@ -60,12 +60,18 @@ class Profile(models.Model):
         print(">Done")
 
     def get_genre_preferences(name):
-        query = Profile.objects.get(username=name)
-        return getattr(query, 'genre_preferences')
+        try:
+            query = Profile.objects.get(username=name)
+            return getattr(query, 'genre_preferences')
+        except:
+            return ""
     
     def get_language(name):
-        query = Profile.objects.get(username=name)
-        return getattr(query, 'language')
+        try:
+            query = Profile.objects.get(username=name)
+            return getattr(query, 'language')
+        except:
+            return ""
 
 class Item(models.Model):
     id = models.IntegerField(primary_key=True)

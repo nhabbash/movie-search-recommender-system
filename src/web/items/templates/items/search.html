@@ -6,12 +6,17 @@
   
 {% load static %}
 
-{% if items %}
-    <ul>
-    {% for item in items %}
-        <li><a href="">{{ item.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No items resulted.</p>
-{% endif %}
+{% if items != "NU" %}
+    {% if items != "NI" %}
+        <ul>
+        {% for item in items %}
+            <li><a href="">{{ item.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No item resulted.</p>
+    {% endif %}
+ {% else %}
+    <p>No User resulted.</p>
+{% endif %}        
+
