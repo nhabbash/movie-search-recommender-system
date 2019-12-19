@@ -1,7 +1,16 @@
 <form method="get">
-    <input id="q" name="q" type="text" placeholder="your search...">
-    <input id="u" name="u" type="text" placeholder="user...">
-    <button type="submit" name="search" value="activate">Search</button>
+    <center>
+    <br>
+    <h1>PyMovie</h1>
+    <br>
+    <br>
+    <br>
+    <input id="q" name="q" type="text" placeholder="your search..." style="font-size:10pt;height:30px;width:130px;">
+    <br>
+    <input id="u" name="u" type="text" placeholder="user..." style="font-size:10pt;height:30px;width:130px;">
+    <br>
+    <button type="submit" name="search" value="activate" style="font-size:10pt;height:30px;width:130px;">Search</button>
+    
 </form>
   
 {% load static %}
@@ -10,7 +19,7 @@
     {% if items != "NI" %}
         <ul>
         {% for item in items %}
-            <li><a href="">{{ item.title }}</a></li>
+            <li><a href="" style="font-size: 20px; text-decoration: none">{{ item.title }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -19,4 +28,4 @@
  {% else %}
     <p>No User resulted.</p>
 {% endif %}        
-
+</center>
