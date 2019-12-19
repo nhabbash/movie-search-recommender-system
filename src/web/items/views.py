@@ -16,5 +16,6 @@ def search(request):
 
     return render(request, 'items/search.html', {'items': items})
 
-def info(request):
-    print("hello")
+def info(request, film_id):
+    print("Hello")
+    return render(request, 'items/info.html', {'items': 10})

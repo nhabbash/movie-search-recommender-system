@@ -19,7 +19,7 @@
     {% if items != "NI" %}
         <ul>
         {% for item in items %}
-            <li><a href="" style="font-size: 20px; text-decoration: none">{{ item.title }}</a></li>
+            <li><a href="/items/20" style="font-size: 20px; text-decoration: none">{{ item.title }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -27,5 +27,6 @@
     {% endif %}
  {% else %}
     <p>No User resulted.</p>
-{% endif %}        
+{% endif %}     
+<a href="{% url 'search' %}">Clear</a>   
 </center>
