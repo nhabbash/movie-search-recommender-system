@@ -1,21 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from items.documents import ItemDocument
-from elasticsearch_dsl.query import Q, MultiMatch, SF, Bool
-from elasticsearch_dsl import query
-from .search import *
+from items.forms import SearchForm
+from django.views.generic.edit import FormView
+import items.search as search
+from collections import defaultdict
 
-def search(request):
-    q = request.GET.get('q')
-    u = request.GET.get('u')
-    
-    if q:
-        items = query(q, u)
-    else:
-        items = ""
+class SearchView(FormView):
+    template_name = 'items/search.html'
+    form_class = SearchForm
 
-    return render(request, 'items/search.html', {'items': items})
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        return super().form_valid(form)
 
-def info(request, film_id):
-    print("Hello")
-    return render(request, 'items/info.html', {'items': 10})
+    def get_context_data(self, **kwargs):
+        context = super(SearchView, self).get_context_data(**kwargs)
+        data = defaultdict(int, self.request.GET.dict())
+
+        q = data["query"]
+        items = search.query(q)
+        
+        context['items'] = items
+        return context

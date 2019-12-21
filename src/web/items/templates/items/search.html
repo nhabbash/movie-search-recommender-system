@@ -1,32 +1,134 @@
-<form method="get">
-    <center>
-    <br>
-    <h1>PyMovie</h1>
-    <br>
-    <br>
-    <br>
-    <input id="q" name="q" type="text" placeholder="your search..." style="font-size:10pt;height:30px;width:130px;">
-    <br>
-    <input id="u" name="u" type="text" placeholder="user..." style="font-size:10pt;height:30px;width:130px;">
-    <br>
-    <button type="submit" name="search" value="activate" style="font-size:10pt;height:30px;width:130px;">Search</button>
-    
-</form>
-  
-{% load static %}
+{% load widget_tweaks %}
 
-{% if items != "NU" %}
-    {% if items != "NI" %}
-        <ul>
-        {% for item in items %}
-            <li><a href="/items/20" style="font-size: 20px; text-decoration: none">{{ item.title }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No item resulted.</p>
-    {% endif %}
- {% else %}
-    <p>No User resulted.</p>
-{% endif %}     
-<a href="{% url 'search' %}">Clear</a>   
-</center>
+<!DOCTYPE html>
+<head>
+  <title>Search</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+ <style>
+    #advanced {
+        display:none;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    tbody {
+        display:block;
+        overflow:auto;
+    }
+
+    thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+    }
+ </style>
+
+</head>
+<body>
+  <div class="container">
+  </div>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center green-text text-lighten-3">Movie Retrieval</h1>
+      <div class="row center">
+        <h5 class="header col s12 light grey-text text-lighten-1">Search for your movies with full-text search!</h5>
+      </div>
+    </div>
+  </div>
+
+   <div class="container">
+    <!-- Search bar+form -->
+        <div class="row">
+        <div class="col s12">
+            <form method="get">
+                <div class="input-field">
+                    {{ form.query.errors }}
+                    <i class="material-icons prefix">search</i>
+                    {{ form.query.label_tag }} {{ form.query }}
+                </div>
+
+                <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Advanced Options</a>
+
+                <div id="advanced">
+                    <div class="switch">
+                        <label>
+                            {{ form.personalized.errors }}
+                            {{ form.personalized.label_tag }}
+                            {{ form.personalized}} 
+                            <span class="lever"></span>
+                        </label>
+                    </div> 
+                    <div class="switch">
+                        <label>
+                            {{ form.fuzzy.errors }}
+                            {{ form.fuzzy.label_tag }}
+                            {{ form.fuzzy}} 
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <!-- Results bar -->
+        <div class="row">
+                <div class="col s12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Overview</th>
+                                <th>Score</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if items %}
+                                {% for item in items %}
+                                    <tr>
+                                        <td>{{ item.title }}</td>
+                                        <td>{{ item.overview }}</td>
+                                        <td>{{ item.meta.score }}</td>
+                                        
+                                        </tr>
+                                    <tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+
+
+
+
+  </body>
+      
+  <script>
+        var m=0;
+        var x = document.getElementById("advanced");
+
+        function show()
+        {
+          if(m==0)
+          {
+            x.style.display='block';
+            m=1;
+          }else{
+            x.style.display='none';
+            m=0;
+          }
+        }
+    </script>
+</html>

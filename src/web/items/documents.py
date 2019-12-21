@@ -19,7 +19,7 @@ class ItemDocument(Document):
         settings = {'number_of_shards': 1,
                     'number_of_replicas': 0,
                     "search.slowlog.level": "trace",
-                    "search.slowlog.threshold.query.trace": "1ms"}
+                    "search.slowlog.threshold.query.trace": "0ms"}
 
     class Django:
         model = Item # The model associated with this Document

@@ -1,0 +1,32 @@
+<form method="get">
+    <center>
+    <br>
+    <h1>PyMovie</h1>
+    <br>
+    <br>
+    <br>
+    <input id="q" name="q" type="text" placeholder="your search..." style="font-size:10pt;height:30px;width:130px;">
+    <br>
+    <input id="u" name="u" type="text" placeholder="user..." style="font-size:10pt;height:30px;width:130px;">
+    <br>
+    <button type="submit" name="search" value="activate" style="font-size:10pt;height:30px;width:130px;">Search</button>
+    
+</form>
+  
+{% load static %}
+
+{% if items != "NU" %}
+    {% if items != "NI" %}
+        <ul>
+        {% for item in items %}
+            <li><a href="/items/20" style="font-size: 20px; text-decoration: none">{{ item.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No item resulted.</p>
+    {% endif %}
+ {% else %}
+    <p>No User resulted.</p>
+{% endif %}     
+<a href="{% url 'search' %}">Clear</a>   
+</center>

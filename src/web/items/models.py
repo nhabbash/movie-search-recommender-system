@@ -75,15 +75,15 @@ class Profile(models.Model):
 
 class Item(models.Model):
     id = models.IntegerField(primary_key=True)
-    title = models.TextField(blank = True)
-    overview = models.TextField(blank = True)
-    original_lan = models.TextField(blank = True)
-    spoken_lan = models.TextField(blank = True)
-    genres = models.TextField(blank = True)
+    title = models.TextField(blank = True, null = True)
+    overview = models.TextField(blank = True, null = True)
+    original_lan = models.TextField(blank = True, null = True)
+    spoken_lan = models.TextField(blank = True, null = True)
+    genres = models.TextField(blank = True, null = True)
     release_date = models.DateField(default = date(1111, 11, 11), blank = True, null = True)
-    production_companies = models.TextField(blank = True)
-    vote_average = models.IntegerField(blank = True)
-    vote_count = models.IntegerField(blank = True)
+    production_companies = models.TextField(blank = True, null = True)
+    vote_average = models.IntegerField(blank = True, null = True)
+    vote_count = models.IntegerField(blank = True, null = True)
 
     def __str__(self):
         return self.title
@@ -117,7 +117,6 @@ class Item(models.Model):
             for _, row in movie_dataset.iterrows()
         ], ignore_conflicts=True)
         print(">Done")
-
 
 
 

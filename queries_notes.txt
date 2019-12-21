@@ -1,0 +1,22 @@
+# Calcola la media del campo vote_average
+
+POST /item_index/_search?size=0
+{
+    "aggs" : {
+        "avg_grade" : {
+            "avg" : {
+                "script" : {
+                    "source" : "doc.vote_average.value"
+                }
+            }
+        }
+    }
+}
+
+# elasticsearch_dsl
+
+q = Q('bool',
+    must=[Q('match', title='python')],
+    should=[Q(...), Q(...)],
+    minimum_should_match=1
+)
