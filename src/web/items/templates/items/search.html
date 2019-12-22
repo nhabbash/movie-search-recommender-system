@@ -56,6 +56,11 @@
                     <i class="material-icons prefix">search</i>
                     {{ form.query.label_tag }} {{ form.query }}
                 </div>
+                <div class="input-field">
+                    {{ form.profile.errors }}
+                    <i class="material-icons prefix">account_box</i>
+                    {{ form.profile.label_tag }} {{ form.profile }}
+                </div>
 
                 <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Advanced Options</a>
 
@@ -76,12 +81,40 @@
                             <span class="lever"></span>
                         </label>
                     </div>
+                    <div class="switch">
+                        <label>
+                            {{ form.synonyms.errors }}
+                            {{ form.synonyms.label_tag }}
+                            {{ form.synonyms}} 
+                            <span class="lever"></span>
+                        </label>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
         <!-- Results bar -->
+            <div class="row">
+                <div class="col s12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User Interest</th>
+                                <th>User Language</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>{{ u_interest }}</td>
+                                    <td>{{ u_language }}</td>
+                                </tr>
+                            <tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         <div class="row">
                 <div class="col s12">
                     <table>
@@ -89,6 +122,8 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Overview</th>
+                                <th>Language</th>
+                                <th>Genres</th>
                                 <th>Score</th> 
                             </tr>
                         </thead>
@@ -98,8 +133,9 @@
                                     <tr>
                                         <td>{{ item.title }}</td>
                                         <td>{{ item.overview }}</td>
+                                        <td>{{ item.spoken_lan }}</td>
+                                        <td>{{ item.genres }}</td>
                                         <td>{{ item.meta.score }}</td>
-                                        
                                         </tr>
                                     <tr>
                                 {% endfor %}
@@ -109,7 +145,7 @@
                 </div>
         </div>
     </div>
-
+</div>
 
 
 

@@ -17,7 +17,14 @@ class SearchView(FormView):
         data = defaultdict(int, self.request.GET.dict())
 
         q = data["query"]
-        items = search.query(q)
+        profile = data["profile"]
+        ps = data["personalized"]
+        fuzzy = data["fuzzy"]
+        synonyms = data["synonyms"]
+
+        items, u_interest, u_language = search.query(q, profile, ps, fuzzy, synonyms)
         
         context['items'] = items
+        context['u_interest'] = u_interest[0:-2]
+        context['u_language'] = u_language[0:-2]
         return context
