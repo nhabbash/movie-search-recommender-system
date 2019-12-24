@@ -17,5 +17,17 @@ User.objects.filter(username='root').exists() or \
     User.objects.create_superuser('root', 'root@example.com', 'root')
 print(">Done")
 
-Item.populate()
-Profile.populate()
+if len(sys.argv) > 1:
+    if sys.argv[1] == "profiles":
+        print("----Profiles")
+        Profile.populate()
+    elif sys.argv[1] == "items":
+        print("----Items")
+        Item.populate()
+        os.system("python manage.py search_index --rebuild -f")
+else:
+    print("----Profiles")
+    Profile.populate()
+    print("----Items")
+    Item.populate()
+    os.system("python manage.py search_index --rebuild -f")

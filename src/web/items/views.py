@@ -25,6 +25,6 @@ class SearchView(FormView):
         items, u_interest, u_language = search.query(q, profile, ps, fuzzy, synonyms)
         
         context['items'] = items
-        context['u_interest'] = u_interest[0:-2]
-        context['u_language'] = u_language[0:-2]
+        context['u_interest'] = u_interest
+        context['u_language'] = u_language
         return context

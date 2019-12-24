@@ -1,5 +1,6 @@
 username;location;birth_date;genre_preferences;history_profile;language
-Giulio;Italy;1995-8-10;Adventure, Fantasy, Family, ; ;it, 
-Mark;England;1999-2-23;Comedy, Drama, ; ;en,  
-Luis;France;1993-6-20;Crime, Science Fiction, ; ;en, fr, it,  
-Gerald;germany;1990-6-20;Fantasy, ; ;fr, it,  
+Giulio;Italy;1995-8-10;Adventure, Fantasy, Family; ;it
+Mark;England;1999-2-23;Comedy, Drama; ;en
+Luis;France;1993-6-20;Crime, Science Fiction; ;en, fr, it
+Gerald;Germany;1990-6-20;Fantasy; ;fr, it
+Frank;USA;1999-10-10;Animation; ;en

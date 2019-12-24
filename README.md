@@ -33,8 +33,7 @@ $ sudo docker exec -it item-retrieval-web bash # Entering the web container
 $ python manage.py createsuperuser # Creating super user 
 $ python manage.py makemigrations 
 $ python manage.py migrate
-$ python init_data.py # Initialize data (creates superuser, clears and populates DB)
-$ python manage.py search_index --rebuild # Creates index
+$ python init_data.py (items/profiles/"") # Initialize data (creates superuser, clears and populates DB, refreshes index)
 ```
 
 

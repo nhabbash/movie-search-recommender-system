@@ -5,6 +5,8 @@ from django.dispatch import receiver
 from datetime import date
 import pandas as pd
 
+from django.db import connection
+
 class Profile(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE)
     username = models.TextField(blank = True)
@@ -37,7 +39,10 @@ class Profile(models.Model):
     def populate(cls):
         try:
             print("Trying clearing DB")
-            cls.objects.all().delete()
+
+            cursor = connection.cursor()
+            cursor.execute("TRUNCATE " + str(cls.objects.model._meta.db_table))
+            #cls.objects.all()._raw_delete(cls.db)
             print(">Done")
         except Exception as e:
             print("Error:", e)
@@ -92,7 +97,9 @@ class Item(models.Model):
     def populate(cls):
         try:
             print("Trying clearing DB")
-            cls.objects.all().delete()
+            cursor = connection.cursor()
+            cursor.execute("TRUNCATE " + str(cls.objects.model._meta.db_table))
+            #cls.objects.all()._raw_delete(cls.db)
             print(">Done")
         except Exception as e:
             print("Error:", e)

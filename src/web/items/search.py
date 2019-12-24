@@ -27,27 +27,28 @@ def query(query_text, profile, personalized, fuzzy, synonyms):
 
     items = []
 
+   
+
+    if personalized :
+        interest = Profile.get_genre_preferences(profile)
+        language = Profile.get_language(profile)
+
+        should_queryset = [
+            Q({"multi_match":                                       # Query type
+                    {"query": interest,                             # User genre preference
+                    "fields": ['genres^4', 'overview'],             # Boosting results in the genre field compared to the overview field
+                    "type": "best_fields",
+                    }
+                }),
+                Q({"multi_match":                                   # Query type
+                    {"query": language,                             # User language preference
+                    "fields": ['spoken_lan^10', 'original_lan'],
+                    "type": "best_fields",
+                    }
+                }),
+        ]
+
     if query_text :
-
-        if personalized :
-            interest = Profile.get_genre_preferences(profile)
-            language = Profile.get_language(profile)
-
-            should_queryset = [
-                Q({"multi_match":                                       # Query type
-                        {"query": interest,                             # User genre preference
-                        "fields": ['genres^4', 'overview'],             # Boosting results in the genre field compared to the overview field
-                        "type": "best_fields",
-                        }
-                    }),
-                    Q({"multi_match":                                   # Query type
-                        {"query": language,                             # User language preference
-                        "fields": ['spoken_lan^10', 'original_lan'],
-                        "type": "best_fields",
-                        }
-                    }),
-            ]
-
         must_queryset = [
             Q({"multi_match":                                       # Query type
                     {"query": query_text, 
@@ -60,13 +61,13 @@ def query(query_text, profile, personalized, fuzzy, synonyms):
                 }),
         ]
         
-        query = Q(
-            "bool",
-            must = must_queryset,         # Main query
-            should = should_queryset,     # Personalization
-            minimum_should_match = "20%",
-            )
+    query = Q(
+        "bool",
+        must = must_queryset,         # Main query
+        should = should_queryset,     # Personalization
+        minimum_should_match = "20%",
+        )
 
-        items = ItemDocument.search().query(query)
+    items = ItemDocument.search().query(query)
 
     return items, interest, language

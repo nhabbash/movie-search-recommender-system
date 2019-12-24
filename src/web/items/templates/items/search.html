@@ -30,6 +30,16 @@
         width:100%;
         table-layout:fixed;
     }
+
+    #personalized {
+        display: block;
+    }
+
+    .overview {
+        overflow-y: scroll;
+        height: 10em;
+        display: block;
+    }
  </style>
 
 </head>
@@ -39,7 +49,7 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center green-text text-lighten-3">Movie Retrieval</h1>
+      <h1 class="header center green-text text-lighten-3">ElasticMovies</h1>
       <div class="row center">
         <h5 class="header col s12 light grey-text text-lighten-1">Search for your movies with full-text search!</h5>
       </div>
@@ -51,37 +61,40 @@
         <div class="row">
         <div class="col s12">
             <form method="get">
-                <div class="input-field">
-                    {{ form.query.errors }}
-                    <i class="material-icons prefix">search</i>
-                    {{ form.query.label_tag }} {{ form.query }}
-                </div>
-                <div class="input-field">
-                    {{ form.profile.errors }}
-                    <i class="material-icons prefix">account_box</i>
-                    {{ form.profile.label_tag }} {{ form.profile }}
-                </div>
+                <div class="row">
+                    <div class="input-field col s8">
+                        {{ form.query.errors }}
+                        <i class="material-icons prefix">search</i>
+                        {{ form.query.label_tag }} {{ form.query }}
+                    </div>
 
-                <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Advanced Options</a>
-
+                    <div class="input-field col s4">
+                        {{ form.profile.errors }}
+                        <i class="material-icons prefix">account_box</i>
+                        {{ form.profile.label_tag }} {{ form.profile }}
+                    </div>
+                </div> 
+                <div class="row">
+                    <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Advanced Options</a>
+                </div>
                 <div id="advanced">
-                    <div class="switch">
+                    <div class="switch row">
                         <label>
                             {{ form.personalized.errors }}
                             {{ form.personalized.label_tag }}
-                            {{ form.personalized}} 
+                            {{ form.personalized }} 
                             <span class="lever"></span>
                         </label>
                     </div> 
-                    <div class="switch">
+                    <div class="switch row">
                         <label>
                             {{ form.fuzzy.errors }}
                             {{ form.fuzzy.label_tag }}
-                            {{ form.fuzzy}} 
+                            {{ form.fuzzy }} 
                             <span class="lever"></span>
                         </label>
                     </div>
-                    <div class="switch">
+                    <div class="switch row">
                         <label>
                             {{ form.synonyms.errors }}
                             {{ form.synonyms.label_tag }}
@@ -89,31 +102,32 @@
                             <span class="lever"></span>
                         </label>
                     </div>
+                    <input type="submit" style="display: none;" /> 
                 </div>
             </form>
         </div>
     </div>
 
-        <!-- Results bar -->
-            <div class="row">
-                <div class="col s12">
-                    <table>
-                        <thead>
+    <!-- Results bar -->
+        <div class="row" id="personalized">
+            <div class="col s12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Interest</th>
+                            <th>User Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                             <tr>
-                                <th>User Interest</th>
-                                <th>User Language</th>
+                                <td>{{ u_interest }}</td>
+                                <td>{{ u_language }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                                <tr>
-                                    <td>{{ u_interest }}</td>
-                                    <td>{{ u_language }}</td>
-                                </tr>
-                            <tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
         <div class="row">
                 <div class="col s12">
@@ -132,7 +146,7 @@
                                 {% for item in items %}
                                     <tr>
                                         <td>{{ item.title }}</td>
-                                        <td>{{ item.overview }}</td>
+                                        <td class="overview">{{ item.overview }}</td>
                                         <td>{{ item.spoken_lan }}</td>
                                         <td>{{ item.genres }}</td>
                                         <td>{{ item.meta.score }}</td>
@@ -152,19 +166,31 @@
   </body>
       
   <script>
-        var m=0;
-        var x = document.getElementById("advanced");
+        var showAdvanced = 0;
+        var advancedSec = document.getElementById("advanced");
 
         function show()
         {
-          if(m==0)
+          if(showAdvanced==0)
           {
-            x.style.display='block';
-            m=1;
+            advancedSec.style.display='block';
+            showAdvanced=1;
           }else{
-            x.style.display='none';
-            m=0;
+            advancedSec.style.display='none';
+            showAdvanced=0;
           }
         }
+
+        var personalizedChk = document.getElementById("id_personalized");
+        var personalizedSec = document.getElementById("personalized");
+        personalizedChk.checked = true;
+        personalizedChk.addEventListener( 'change', function() {
+            if(this.checked) {
+                personalizedSec.style.display="block"
+            } else {
+                personalizedSec.style.display="none"
+            }
+        });
+
     </script>
 </html>

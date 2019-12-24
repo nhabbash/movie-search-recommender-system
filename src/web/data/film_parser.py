@@ -13,7 +13,8 @@ def get_element(values, word):
             if word in element:
                 contents += text[index + 2] + ", "
             index += 1
-    return contents
+    
+    return contents.rstrip(', ')
 
 fields = ['id', 'genres', 'original_language', 'overview', 'spoken_languages', 'title', 'release_date', 
             'production_companies', 'vote_average','vote_count']
