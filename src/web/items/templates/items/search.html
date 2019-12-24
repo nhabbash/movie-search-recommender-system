@@ -139,6 +139,7 @@
                                 <th>Language</th>
                                 <th>Genres</th>
                                 <th>Score</th> 
+                                <th>Poster</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -150,6 +151,7 @@
                                         <td>{{ item.spoken_lan }}</td>
                                         <td>{{ item.genres }}</td>
                                         <td>{{ item.meta.score }}</td>
+                                        <td><img src= "{{item.poster_path}}" /></td>
                                         </tr>
                                     <tr>
                                 {% endfor %}

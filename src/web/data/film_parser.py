@@ -17,19 +17,19 @@ def get_element(values, word):
     return contents.rstrip(', ')
 
 fields = ['id', 'genres', 'original_language', 'overview', 'spoken_languages', 'title', 'release_date', 
-            'production_companies', 'vote_average','vote_count']
+            'production_companies', 'vote_average','vote_count', 'poster_path']
 movie_dataset = pd.read_csv('src/web/data/dataset.csv', usecols=fields, keep_default_na=False)
-
 if not os.path.exists('src/web/data/parsed_dataset.csv'):
     with open('src/web/data/parsed_dataset.csv', 'w', newline='') as file:
         writer = csv.writer(file, delimiter =";")
         writer.writerow(["id", "title", "overview", 'original_language', 'spoken_languages', 'genres', 
-                'release_date', 'production_companies', 'vote_average', 'vote_count'])
+                'release_date', 'production_companies', 'vote_average', 'vote_count', 'poster_path'])
         for index, row in movie_dataset.iterrows():
             spoken = get_element(row['spoken_languages'], 'iso')
             genres = get_element(row['genres'], 'name')
             companies = get_element(row['production_companies'], 'name')
             date = row['release_date']
+            poster_ur = "http://image.tmdb.org/t/p/w185/"+row['poster_path']
   
             try:
                 date = datetime.strptime(date, '%Y-%m-%d').date()
@@ -42,4 +42,13 @@ if not os.path.exists('src/web/data/parsed_dataset.csv'):
 
             if row['title'] and row['overview']:
                 writer.writerow([row['id'], row['title'], row['overview'], row['original_language'], spoken, 
-                        genres, date, companies, row['vote_average'], row['vote_count']])
+                        genres, date, companies, row['vote_average'], row['vote_count'], poster_ur])
+
+
+
+'''parsed_data = pd.read_csv('src/web/data/parsed_dataset.csv', delimiter=";", keep_default_na=False)
+#for language in parsed_data.spoken_languages.unique():
+#    print(language)
+
+for genre in parsed_data.genres.unique():
+    print(genre)'''

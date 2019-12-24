@@ -9,6 +9,7 @@ from django.db import connection
 
 class Profile(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_id = models.IntegerField(blank = True) 
     username = models.TextField(blank = True)
 
     location = models.CharField(max_length=30, blank=True)
@@ -16,7 +17,7 @@ class Profile(models.Model):
 
     # Profiling info
     genre_preferences = models.TextField(blank = True)
-    history_profile = models.TextField(blank = True)
+    history_films = models.TextField(blank = True)
     language = models.TextField(blank = True)
 
     def __str__(self):
@@ -53,11 +54,12 @@ class Profile(models.Model):
         print("Populating")
         cls.objects.bulk_create([
             cls(
+                user_id=row['user_id'],
                 username=row['username'],
                 location=row['location'],
                 birth_date=row['birth_date'],
                 genre_preferences=row['genre_preferences'],
-                history_profile=row['history_profile'],
+                history_films=row['history_films'],
                 language=row['language']
             )
             for _, row in users_dataset.iterrows()
@@ -89,6 +91,7 @@ class Item(models.Model):
     production_companies = models.TextField(blank = True, null = True)
     vote_average = models.IntegerField(blank = True, null = True)
     vote_count = models.IntegerField(blank = True, null = True)
+    poster_path = models.TextField(blank = True, null = True)
 
     def __str__(self):
         return self.title
@@ -119,7 +122,8 @@ class Item(models.Model):
                 release_date=row['release_date'],
                 production_companies=row['production_companies'],
                 vote_average=row['vote_average'],
-                vote_count=row['vote_count']
+                vote_count=row['vote_count'],
+                poster_path=row['poster_path']
             )
             for _, row in movie_dataset.iterrows()
         ], ignore_conflicts=True)

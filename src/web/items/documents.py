@@ -28,7 +28,8 @@ class ItemDocument(Document):
         fields = [
             'release_date',
             'vote_average',
-            'vote_count'
+            'vote_count',
+            'poster_path'
         ]
 
 # THIS PART COULD BE ADDED FROM SETTINGS IN INDEX CLASS
