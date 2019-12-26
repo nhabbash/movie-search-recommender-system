@@ -89,8 +89,10 @@ class Item(models.Model):
     genres = models.TextField(blank = True, null = True)
     release_date = models.DateField(default = date(1111, 11, 11), blank = True, null = True)
     production_companies = models.TextField(blank = True, null = True)
-    vote_average = models.IntegerField(blank = True, null = True)
+    vote_average = models.FloatField(blank = True, null = True)
     vote_count = models.IntegerField(blank = True, null = True)
+    weighted_vote = models.FloatField(blank = True, null = True)
+
     poster_path = models.TextField(blank = True, null = True)
 
     def __str__(self):
@@ -123,7 +125,8 @@ class Item(models.Model):
                 production_companies=row['production_companies'],
                 vote_average=row['vote_average'],
                 vote_count=row['vote_count'],
-                poster_path=row['poster_path']
+                weighted_vote=row['weighted_vote'],
+                poster_path=row['poster_path'],
             )
             for _, row in movie_dataset.iterrows()
         ], ignore_conflicts=True)

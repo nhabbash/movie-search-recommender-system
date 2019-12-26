@@ -20,3 +20,35 @@ q = Q('bool',
     should=[Q(...), Q(...)],
     minimum_should_match=1
 )
+
+GET /_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "bool" : {
+          "must" : {
+            "match": {
+              "title": {
+              "query":"animal"
+              }
+            }
+          },
+          "should" : [
+            {"match":
+              {"query": ""}
+            }
+          ]
+        }
+      },
+      "field_value_factor": {
+                "field": "vote_average",
+                "factor": 1.2,
+                "modifier": "sqrt",
+                "missing": 1
+            }
+
+    }
+    
+  }
+}

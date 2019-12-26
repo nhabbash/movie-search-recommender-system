@@ -37,7 +37,7 @@
 
     .overview {
         overflow-y: scroll;
-        height: 10em;
+        height: 17em;
         display: block;
     }
  </style>
@@ -102,6 +102,22 @@
                             <span class="lever"></span>
                         </label>
                     </div>
+                    <div class="switch row">
+                        <label>
+                            {{ form.popularity_rel.errors }}
+                            {{ form.popularity_rel.label_tag }}
+                            {{ form.popularity_rel }} 
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <div class="switch row">
+                        <label>
+                            {{ form.weighted_vote_rel.errors }}
+                            {{ form.weighted_vote_rel.label_tag }}
+                            {{ form.weighted_vote_rel }} 
+                            <span class="lever"></span>
+                        </label>
+                    </div>
                     <input type="submit" style="display: none;" /> 
                 </div>
             </form>
@@ -131,27 +147,31 @@
 
         <div class="row">
                 <div class="col s12">
-                    <table>
+                    <table class="centered responsive-table">
                         <thead>
                             <tr>
+                                <th>Poster</th> 
                                 <th>Title</th>
                                 <th>Overview</th>
                                 <th>Language</th>
                                 <th>Genres</th>
-                                <th>Score</th> 
-                                <th>Poster</th> 
+                                <th>Average vote</th>
+                                <th>Vote count</th> 
+                                <th>Topicality</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% if items %}
                                 {% for item in items %}
                                     <tr>
+                                        <td><img class="responsive-img" src= "{{item.poster_path}}" /></td>
                                         <td>{{ item.title }}</td>
                                         <td class="overview">{{ item.overview }}</td>
                                         <td>{{ item.spoken_lan }}</td>
                                         <td>{{ item.genres }}</td>
+                                        <td>{{ item.vote_average }}</td>
+                                        <td>{{ item.vote_count }}</td>
                                         <td>{{ item.meta.score }}</td>
-                                        <td><img src= "{{item.poster_path}}" /></td>
                                         </tr>
                                     <tr>
                                 {% endfor %}

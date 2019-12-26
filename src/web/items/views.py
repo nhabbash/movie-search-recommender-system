@@ -21,8 +21,10 @@ class SearchView(FormView):
         ps = data["personalized"]
         fuzzy = data["fuzzy"]
         synonyms = data["synonyms"]
+        pop = data["popularity_rel"]
+        weight = data["weighted_vote_popularity"]
 
-        items, u_interest, u_language = search.query(q, profile, ps, fuzzy, synonyms)
+        items, u_interest, u_language = search.query(q, profile, ps, fuzzy, synonyms, pop, weight)
         
         context['items'] = items
         context['u_interest'] = u_interest

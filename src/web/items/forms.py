@@ -7,3 +7,5 @@ class SearchForm(forms.Form):
     fuzzy = forms.BooleanField(required=False)
     personalized = forms.BooleanField(required=False)
     synonyms = forms.BooleanField(required=False)
+    popularity_rel = forms.BooleanField(required=False)
+    weighted_vote_rel = forms.BooleanField(required=False)

@@ -3,7 +3,7 @@ from items.documents import ItemDocument
 from elasticsearch_dsl.query import Q
 from .models import Profile
 
-def query(query_text, profile, personalized, fuzzy, synonyms):
+def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
 
     should_queryset = []
     must_queryset = []
@@ -13,6 +13,8 @@ def query(query_text, profile, personalized, fuzzy, synonyms):
     fuzzyness_value = ""
     synonyms_value = ""
     prefix_value = 0
+    leaf_query_type = "multi_match"
+    items = []
 
     if fuzzy:
         fuzzyness_value = "AUTO"
@@ -25,49 +27,97 @@ def query(query_text, profile, personalized, fuzzy, synonyms):
     else:
         synonyms_value = "false"
 
-    items = []
-
-   
-
     if personalized :
         interest = Profile.get_genre_preferences(profile)
         language = Profile.get_language(profile)
 
-        should_queryset = [
-            Q({"multi_match":                                       # Query type
-                    {"query": interest,                             # User genre preference
-                    "fields": ['genres^4', 'overview'],             # Boosting results in the genre field compared to the overview field
-                    "type": "best_fields",
-                    }
-                }),
-                Q({"multi_match":                                   # Query type
-                    {"query": language,                             # User language preference
-                    "fields": ['spoken_lan^10', 'original_lan'],
-                    "type": "best_fields",
-                    }
-                }),
-        ]
+        if interest and language:
+            should_queryset.extend([
+                Q({"multi_match":                                       # Query type
+                        {"query": interest,                             # User genre preference
+                        "fields": ['genres^4', 'overview'],             # Boosting results in the genre field compared to the overview field
+                        "type": "best_fields",
+                        }
+                    }),
+                    Q({"multi_match":                                   # Query type
+                        {"query": language,                             # User language preference
+                        "fields": ['spoken_lan^10', 'original_lan'],
+                        "type": "best_fields",
+                        }
+                    }),
+            ])
 
     if query_text :
-        must_queryset = [
-            Q({"multi_match":                                       # Query type
-                    {"query": query_text, 
-                    "fields": ['title^2', 'overview'],              # Boosting results in the title field compared to the overview field
-                    "fuzziness": fuzzyness_value,                            # Lets search for words with typos in them
-                    "prefix_length": prefix_value,
-                    "auto_generate_synonyms_phrase_query": synonyms_value,  # Generates words synonims if possible in the query (ny = new and york)
-                    "type": "best_fields",
-                    }
-                }),
-        ]
-        
-    query = Q(
-        "bool",
-        must = must_queryset,         # Main query
-        should = should_queryset,     # Personalization
-        minimum_should_match = "20%",
-        )
+        if query_text[0] == query_text[-1] == "\"" :
+            leaf_query_type = "match_phrase"
 
-    items = ItemDocument.search().query(query)
+        if leaf_query_type == "multi_match":
+            must_queryset.extend([
+                Q({leaf_query_type:                                       # Query type
+                        {"query": query_text, 
+                        "fields": ['title^2', 'overview'],              # Boosting results in the title field compared to the overview field
+                        "fuzziness": fuzzyness_value,                            # Lets search for words with typos in them
+                        "prefix_length": prefix_value,
+                        "auto_generate_synonyms_phrase_query": synonyms_value,  # Generates words synonims if possible in the query (ny = new and york)
+                        "type": "best_fields",
+                        }
+                    }),
+            ])
+        elif leaf_query_type == "match_phrase" :
+            must_queryset.extend([
+                Q({leaf_query_type:                                       # Query type
+                        {"title": query_text}
+                    }),
+            ])
+    
+    if weight :
+    # Relevance dimension using Rank Feature datatype in the index
+         query = Q(
+            {"function_score" : {
+                "query": Q(
+                    "bool",
+                    must = must_queryset,         # Main query
+                    should = should_queryset,     # Personalization
+                    minimum_should_match = "20%",
+                    ),
+                "field_value_factor": {
+                    "field": "weighted_vote",
+                    "factor": 1.2,
+                    "modifier": "sqrt",
+                    "missing": 1
+                    }
+                }
+            }
+        )
+    
+    elif pop :
+    # Relevance dimension using Function Score query
+        query = Q(
+            {"function_score" : {
+                "query": Q(
+                    "bool",
+                    must = must_queryset,         # Main query
+                    should = should_queryset,     # Personalization
+                    minimum_should_match = "20%",
+                    ),
+                "field_value_factor": {
+                    "field": "vote_count",
+                    "factor": 1.2,
+                    "modifier": "sqrt",
+                    "missing": 1
+                    }
+                }
+            }
+        )
+    else :
+        query = Q(
+            "bool",
+            must = must_queryset,         # Main query
+            should = should_queryset,     # Personalization
+            minimum_should_match = "20%",
+            )
+
+    if query_text or profile:
+        items = ItemDocument.search().query(query)
 
     return items, interest, language
