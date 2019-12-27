@@ -50,9 +50,9 @@ class RecommenderView(FormView):
         film_cf, film_cb, profile_seen, u_interest, u_language = search.recommendation(profile)
 
 
-
-        context['items'] = profile_seen
-
+        context['film_cb'] = film_cb
+        context['film_cf'] = film_cf
+        context['profile_seen'] = profile_seen
         context['u_interest'] = u_interest
         context['u_language'] = u_language
 
