@@ -23,10 +23,38 @@ def metadata_user(userId):
         language = "|".join(language).replace(" ", "")
     return {'lang': language, 'gen': "|".join(genres).replace(" ", "")}
 	
+def map_value(x):
+    print(x)
+    values = []
+    for i in x:
+        if i <= 0.05:
+            values.append(0.5)
+        elif i <= 0.1:
+            values.append(1)
+        elif i <= 0.15:
+            values.append(1.5)
+        elif i <= 0.2:
+            values.append(2)
+        elif i <= 0.25:
+            values.append(2.5)
+        elif i <= 0.3:
+            values.append(3)
+        elif i <= 0.35:
+            values.append(3.5)
+        elif i <= 0.4:
+            values.append(4)
+        elif i <= 0.45:
+            values.append(4.5)
+        else:
+            values.append(5)
+    return values
+
 def filter_metadata(X):
     data = dataset[dataset['genres'].str.contains(X['gen'], na = False)]
     data = data[data['spoken_languages'].str.contains(X['lang'], na = False)]
-    return data[['movieId','title','overv_pp']] 
+    data = data[['id','title','overv_pp']] 
+    data = data.drop_duplicates(subset='id', keep="last")
+    return data
 
 def map_user(user, tf):
     user = user[0]
@@ -48,29 +76,35 @@ def recommender_cb(user_metadata, user_bow, user_id):
     tfidf_matrix = tf.fit_transform(movies_user['overv_pp'])
     cosine_similarities = linear_kernel(np.array([map_user(user_bow, tf)]), tfidf_matrix)[0]
     final_movies = []
-    cs_sort = cosine_similarities.argsort()[::-1]
-    cs_sort = list(set(movies_user.iloc[cs_sort,:]['movieId'].values))[0:10]
+    cs_sort = cosine_similarities.argsort()[::-1][0:10]
+    id_films = []
+    rank = []
     for i in cs_sort:
-        final_movies.append(movies_user.query("movieId == "+str(i)).head(1)['title'].values[0])
-    return pd.DataFrame({'userId': [user_id]*10,'movieId':cs_sort, 'title':final_movies, 'type_r':['cb']*10})
+        id_films.append(movies_user['id'].values[i])
+        rank.append(cosine_similarities[i])
+    for i in id_films:
+        final_movies.append(movies_user.query("id == "+str(i)).head(1)['title'].values[0])
+    return pd.DataFrame({'userId': [user_id]*10,'movieId':id_films, 'title':final_movies, 'type_r':['cb']*10,'rank':rank})
 	
 def recommender_cf(user_id):
     movie_view = dataset.query("userId == "+ str(user_id))
     old_movie = movie_view['movieId'].values
-    all_movie = list(set(dataset['movieId'].values))
+    all_movie = list(set(dataset['movieId'].values))    
     new_film = list(set(all_movie) - set(old_movie))
     random_film = random.sample(new_film, 50)
     pred=model.predict([[user_id]*50, np.array(random_film)])
     couple = list(zip(pred, random_film))
     top_couple = sorted(couple, key = lambda x : x[0])[-11:-1]
-    top = [x[1] for x in top_couple][:: -1]
-    final_movie =[]
-    for i in top:
-        final_movie.append(dataset.query("movieId == "+str(i))['title'].values[0])
-    data = {'userId': [user_id]*10, 'movieId':top, 'title':final_movie, 'type_r':['cf']*10}  
+    top_movieId = [x[1] for x in top_couple][:: -1]
+    top_rate = map_value([x[0] for x in top_couple][:: -1])
+    title_movie = []
+    id_movie = []
+    for i in top_movieId:
+        title_movie.append(dataset.query("movieId == "+str(i))['title'].values[0])
+        id_movie.append(dataset.query("movieId == "+str(i))['id'].values[0])
+    data = {'userId': [user_id]*10, 'movieId':id_movie, 'title':title_movie, 'type_r':['cf']*10,'rank':top_rate}  
     return pd.DataFrame(data)
     
- 
 list_users = list(user_profile['user_id'].values) 
 
 metadata_u = metadata_user(list_users[0])
