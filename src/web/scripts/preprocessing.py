@@ -7,10 +7,28 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
+import re
 
-dataset = pd.read_csv("./data/parsed_dataset.csv", delimiter = ";")
-ratings = pd.read_csv("./data/ratings_small.csv")
-users = pd.read_csv("./data/users.csv")
+dataset = pd.read_csv("../data/parsed_dataset.csv", delimiter = ";")
+ratings = pd.read_csv("../data/ratings_small.csv")
+users = pd.read_csv("../data/users.csv")
+
+# Insert user history in ratings_small
+def add_user_custom_ratings():
+    for index, row in users.iterrows():
+        film_ratings = re.findall('\(\W*([\w\s]*?)\W*,\W*([\w\s]*?)\W*\)', row["film_ratings"])
+
+    for film in film_ratings:
+        global ratings
+        ratings = ratings.append({"userId": row["user_id"],
+                        "movieId": film[0],
+                        "rating": film[1]}, ignore_index=True)
+    
+    ratings.to_csv('../data/ratings_small_extended.csv',index = False)
+
+add_user_custom_ratings()
+
+ratings = pd.read_csv("../data/ratings_small_extended.csv")
 
 #preprocessing overwies
 stop_words = set(stopwords.words('english'))
@@ -37,6 +55,7 @@ def stemming(data):
         tmp.append(ps.stem(w))
     return tmp
 
+
 corpus =[]
 
 for i in list(dataset['overview'].values):
@@ -57,7 +76,7 @@ complete_data = complete_data[np.isfinite(complete_data['rating'])]
 item_enc = LabelEncoder()
 complete_data['movieId'] = item_enc.fit_transform(complete_data['id'].values)
 
-complete_data.to_csv('./data/dataset_rs.csv', index= False)
+complete_data.to_csv('../data/dataset_rs.csv', index= False)
 
 #create user final , add bow and history_films with ratings
 def create_bow_user(userId):
@@ -87,4 +106,4 @@ user_dataframe = pd.DataFrame(user_dic)
 
 df = users.join(user_dataframe)
 
-df.to_csv('./data/users_final.csv',index = False)
+df.to_csv('../data/users_final.csv',index = False)
