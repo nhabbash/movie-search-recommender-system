@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from items.documents import ItemDocument
 from elasticsearch_dsl.query import Q
-from .models import Profile
+from .models import Profile, Item
+import pandas as pd
 
 def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
 
@@ -121,3 +122,23 @@ def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
         items = ItemDocument.search().query(query)
 
     return items, interest, language
+
+
+def recommendation(profile):
+
+    user_id = Profile.get_id(profile)
+    interest = Profile.get_genre_preferences(profile)
+    language = Profile.get_language(profile)
+
+    recommandations_dataset = pd.read_csv('./data/user_recommender.csv', keep_default_na=False)
+
+    film_cf = list()
+    film_cb = list()
+
+    for index, row in recommandations_dataset.iterrows():
+        if row['userId'] == user_id:
+            film_cf.append(Item.get_item(int(row['id_cf'])))
+            film_cb.append(Item.get_item(int(row['id_cb'])))
+
+
+    return film_cf, film_cb, interest, language

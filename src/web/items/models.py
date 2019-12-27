@@ -80,6 +80,14 @@ class Profile(models.Model):
         except:
             return ""
 
+    def get_id(name):
+        try:
+            query = Profile.objects.get(username=name)
+            return getattr(query, 'user_id')
+        except:
+            return ""
+
+
 class Item(models.Model):
     id = models.IntegerField(primary_key=True)
     title = models.TextField(blank = True, null = True)
@@ -131,6 +139,14 @@ class Item(models.Model):
             for _, row in movie_dataset.iterrows()
         ], ignore_conflicts=True)
         print(">Done")
+
+    def get_item(id):
+        try:
+            obj = Item.objects.get(pk = id)
+            return obj
+        except:
+            return ""
+
 
 
 

@@ -9,3 +9,6 @@ class SearchForm(forms.Form):
     synonyms = forms.BooleanField(required=False)
     popularity_rel = forms.BooleanField(required=False)
     weighted_vote_rel = forms.BooleanField(required=False)
+
+class RecommenderForm(forms.Form):
+    profile = forms.CharField(required=False, label='User...')

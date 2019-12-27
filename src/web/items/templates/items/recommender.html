@@ -1,0 +1,164 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<head>
+  <title>Recommender</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+ <style>
+    #advanced {
+        display:none;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    tbody {
+        display:block;
+        overflow:auto;
+    }
+
+    thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+    }
+
+    #personalized {
+        display: block;
+    }
+
+    .overview {
+        overflow-y: scroll;
+        height: 17em;
+        display: block;
+    }
+ </style>
+
+</head>
+<body>
+  <div class="container">
+  </div>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center green-text text-lighten-3">ElasticRecommender</h1>
+      <div class="row center">
+        <h5 class="header col s12 light grey-text text-lighten-1">Recommender based on your profile!</h5>
+      </div>
+    </div>
+  </div>
+
+   <div class="container">
+    <!-- Search bar+form -->
+        <div class="row">
+        <div class="col s12">
+            <form method="get">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form.profile.errors }}
+                        <i class="material-icons prefix">account_box</i>
+                        {{ form.profile.label_tag }} {{ form.profile }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Results bar -->
+        <div class="row" id="personalized">
+            <div class="col s12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Interest</th>
+                            <th>User Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>{{ u_interest }}</td>
+                                <td>{{ u_language }}</td>
+                            </tr>
+                        <tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col s12">
+                    <table class="centered responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Poster</th> 
+                                <th>Title</th>
+                                <th>Overview</th>
+                                <th>Language</th>
+                                <th>Genres</th>
+                                <th>Average vote</th>
+                                <th>Vote count</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if items %}
+                                {% for item in items %}
+                                    <tr>
+                                        <td><img class="responsive-img" src= "{{item.poster_path}}" /></td>
+                                        <td>{{ item.title }}</td>
+                                        <td class="overview">{{ item.overview }}</td>
+                                        <td>{{ item.spoken_lan }}</td>
+                                        <td>{{ item.genres }}</td>
+                                        <td>{{ item.vote_average }}</td>
+                                        <td>{{ item.vote_count }}</td>
+                                        </tr>
+                                    <tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+  </body>
+      
+  <script>
+        var showAdvanced = 0;
+        var advancedSec = document.getElementById("advanced");
+
+        function show()
+        {
+          if(showAdvanced==0)
+          {
+            advancedSec.style.display='block';
+            showAdvanced=1;
+          }else{
+            advancedSec.style.display='none';
+            showAdvanced=0;
+          }
+        }
+
+        var personalizedChk = document.getElementById("id_personalized");
+        var personalizedSec = document.getElementById("personalized");
+        personalizedChk.checked = true;
+        personalizedChk.addEventListener( 'change', function() {
+            if(this.checked) {
+                personalizedSec.style.display="block"
+            } else {
+                personalizedSec.style.display="none"
+            }
+        });
+
+    </script>
+</html>
