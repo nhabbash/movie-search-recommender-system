@@ -1,0 +1,11 @@
+user_id,username,location,birth_date,genre_preferences,language
+1,Geralt,Italy,1995-8-10,"Adventure, Fantasy, Family",it
+2,Mark,England,1999-2-23,"Comedy, Drama",en
+3,Luis,France,1993-6-20,"Crime, Science Fiction","en, fr, it"
+4,Aria,Germany,1990-6-20,Fantasy,"fr, it"
+5,Frank,USA,1999-10-10,Animation,en
+6,Sansa,Denmark,1994-3-12,"Drama, Family, Romance","da, en"
+7,Jon,Hungary,1992-4-2,"Horror, Mystery, Foreign","mk, hu, ru"
+8,Daenerys,Bulgary,1994-12-12,"Mystery, War, Adventure"," ro, tr, ar, bg"
+9,Mikasa,Japan,1992-2-5,"Fantasy, Adventure, Crime, Romance","ja, zh"
+10,Ciri,Spain,1999-12-12,"Science, Drama, Science Fiction","es, it"

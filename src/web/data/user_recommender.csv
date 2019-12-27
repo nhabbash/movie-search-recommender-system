@@ -1,0 +1,201 @@
+,userId,movieId,title,type_r,rank
+0,1,8645,The Happening,cf,4.5
+1,1,8422,Rocco and His Brothers,cf,4.5
+2,1,3055,Valley of the Dolls,cf,4.5
+3,1,47261,Carancho,cf,4.5
+4,1,24,Kill Bill: Vol. 1,cf,4.5
+5,1,582,The Lives of Others,cf,4.5
+6,1,1665,Last Days,cf,4.5
+7,1,2045,Unforgettable,cf,4.5
+8,1,32728,Before Stonewall,cf,4.5
+9,1,2428,The Greatest Story Ever Told,cf,4.5
+0,1,48414,Alamar,cb,0.05962322197140487
+1,1,924,Dawn of the Dead,cb,0.05400577289670229
+2,1,49013,Cars 2,cb,0.049902426043483605
+3,1,574,The Man Who Knew Too Much,cb,0.049829707508300305
+4,1,422,8½,cb,0.032833991432133676
+5,1,3692,Secret Agent Super Dragon,cb,0.02802378293725868
+6,1,1593,Night at the Museum,cb,0.02464443096849291
+7,1,841,Dune,cb,0.022373661809115482
+8,1,4961,Mimic,cb,0.02228247255710001
+9,1,8765,Nirvana,cb,0.020442677188386483
+0,2,1833,Rent,cf,4.5
+1,2,387,Das Boot,cf,4.5
+2,2,110501,Seven and a Half,cf,4.5
+3,2,5413,Omagh,cf,4.5
+4,2,46772,"Electra, My Love",cf,4.5
+5,2,81537,One Night in A City,cf,4.5
+6,2,43267,29th Street,cf,4.5
+7,2,61123,Vares - The Girls of April,cf,4.5
+8,2,688,The Bridges of Madison County,cf,4.0
+9,2,27329,The Legend of Suriyothai,cf,4.0
+0,2,527,Once Were Warriors,cb,0.9610083490571018
+1,2,70282,The Visit,cb,0.17458418705990164
+2,2,42418,Young Black Stallion,cb,0.15312011742075968
+3,2,8999,Derailed,cb,0.14463871008978105
+4,2,1273,TMNT,cb,0.13763249200238709
+5,2,363,Head-On,cb,0.13679308614947583
+6,2,5825,National Lampoon's Christmas Vacation,cb,0.12998837237210922
+7,2,1552,Parenthood,cb,0.12755835380171343
+8,2,6620,Sabrina,cb,0.12648954402527912
+9,2,51277,Now and Forever,cb,0.11248320580980976
+0,3,42418,Young Black Stallion,cf,5.0
+1,3,4024,Last Year at Marienbad,cf,5.0
+2,3,3981,What Women Want,cf,5.0
+3,3,96,Beverly Hills Cop II,cf,5.0
+4,3,43871,Beloved Enemy,cf,5.0
+5,3,26430,The Carter,cf,5.0
+6,3,41566,New York Doll,cf,5.0
+7,3,86593,Wild Bill,cf,5.0
+8,3,41863,Sundome,cf,5.0
+9,3,26422,The Pillow Book,cf,5.0
+0,3,2109,Rush Hour,cb,0.18996886793507678
+1,3,4639,Best Seller,cb,0.14148250586159097
+2,3,2116,Out of Time,cb,0.14093504066881152
+3,3,82,Miami Vice,cb,0.11354096767736374
+4,3,1429,25th Hour,cb,0.1022705215383814
+5,3,378,Raising Arizona,cb,0.09374936935270237
+6,3,1554,Down by Law,cb,0.08752253819113248
+7,3,8987,The River Wild,cb,0.08661721573572803
+8,3,69069,The Chant of Jimmie Blacksmith,cb,0.0821281349810363
+9,3,107,Snatch,cb,0.07783799365408292
+0,4,690,Pickpocket,cf,5.0
+1,4,1479,"Clean, Shaven",cf,5.0
+2,4,1946,eXistenZ,cf,5.0
+3,4,5965,Scorcher,cf,5.0
+4,4,6537,The Orphanage,cf,4.5
+5,4,39414,Paper Man,cf,4.5
+6,4,3536,U-571,cf,4.5
+7,4,4111,Blondie of the Follies,cf,4.5
+8,4,194,Amélie,cf,4.5
+9,4,5236,Kiss Kiss Bang Bang,cf,4.5
+0,4,137,Groundhog Day,cb,0.10329423613543148
+1,4,144,Wings of Desire,cb,0.07462581684402182
+2,4,2897,Around the World in Eighty Days,cb,0.06613341395914345
+3,4,892,Delicatessen,cb,0.05480791946823908
+4,4,492,Being John Malkovich,cb,0.05341120557796711
+5,4,924,Dawn of the Dead,cb,0.03233922336320295
+6,4,101904,Through the Forest,cb,0.028619747748283682
+7,4,4961,Mimic,cb,0.025543611393347536
+8,4,8765,Nirvana,cb,0.02321591371879789
+9,4,2899,Asterix & Obelix: Mission Cleopatra,cb,0.016131067498230088
+0,5,582,The Lives of Others,cf,4.5
+1,5,74946,Feast of All Saints,cf,4.5
+2,5,149,Akira,cf,4.0
+3,5,31445,Beyond Tomorrow,cf,4.0
+4,5,4930,House of Cards,cf,4.0
+5,5,1361,The Return of the King,cf,4.0
+6,5,62437,Land of Silence and Darkness,cf,4.0
+7,5,31035,A Somewhat Gentle Man,cf,4.0
+8,5,1735,The Mummy: Tomb of the Dragon Emperor,cf,4.0
+9,5,2470,Belle Époque,cf,4.0
+0,5,585,"Monsters, Inc.",cb,0.16142656559917237
+1,5,49013,Cars 2,cb,0.07281234256955926
+2,5,425,Ice Age,cb,0.04980166944032057
+3,5,919,Blood: The Last Vampire,cb,0.04742453488738056
+4,5,8920,Garfield,cb,0.04450404674310771
+5,5,4977,Paprika,cb,0.04387063960962356
+6,5,26547,'Twas the Night Before Christmas,cb,0.0427272779326032
+7,5,950,Ice Age: The Meltdown,cb,0.03433652793810045
+8,5,8916,Antz,cb,0.03269979095284634
+9,5,3509,A Scanner Darkly,cb,0.03204650055703575
+0,6,233,The Wanderers,cf,4.5
+1,6,26700,Nocturna,cf,4.5
+2,6,79,Hero,cf,4.5
+3,6,1164,Babel,cf,4.5
+4,6,1661,Gigantics,cf,4.5
+5,6,1626,Vivre Sa Vie,cf,4.5
+6,6,987,The Front Page,cf,4.5
+7,6,965,The Magnificent Ambersons,cf,4.5
+8,6,4338,I Woke Up Early The Day I Died,cf,4.0
+9,6,1633,Fried Green Tomatoes,cf,4.0
+0,6,1909,Don Juan DeMarco,cb,0.9826038806945948
+1,6,4174,Spellbound,cb,0.14160102336555827
+2,6,1049,Sommersby,cb,0.11036585796056825
+3,6,3576,Calling Dr. Gillespie,cb,0.10801553509254318
+4,6,3016,Dr. Jekyll and Mr. Hyde,cb,0.10687902513629811
+5,6,4025,The Prize,cb,0.0906216033592229
+6,6,26838,High Wall,cb,0.09040603449939755
+7,6,1715,The Cider House Rules,cb,0.08527344871359718
+8,6,103299,Traces of Red,cb,0.07638686936075066
+9,6,7095,Jack,cb,0.07545382398808938
+0,7,1812,Trick,cf,5.0
+1,7,1479,"Clean, Shaven",cf,5.0
+2,7,581,Dances with Wolves,cf,4.5
+3,7,61348,The Lost Valentine,cf,4.5
+4,7,2613,Prelude to a Kiss,cf,4.5
+5,7,1783,To End All Wars,cf,4.5
+6,7,574,The Man Who Knew Too Much,cf,4.5
+7,7,69278,Phase 7,cf,4.5
+8,7,1665,Last Days,cf,4.5
+9,7,3086,The Lady Eve,cf,4.5
+0,7,593,Solaris,cb,0.0536743849300784
+1,7,1414,Lovers of the Arctic Circle,cb,0.05048708465449219
+2,7,52885,The Red and the White,cb,0.041154854312524164
+3,7,5470,Beowulf,cb,0.030132036481821108
+4,7,5072,Severance,cb,0.029319138636339493
+5,7,1092,The Third Man,cb,0.023197418127707058
+6,7,1596,Population 436,cb,0.0
+7,7,53000,Soul Assassin,cb,0.0
+8,7,64900,I Can't Sleep,cb,0.0
+9,7,105763,A Chef in Love,cb,0.0
+0,8,3980,Critters,cf,5.0
+1,8,2135,The Time Machine,cf,5.0
+2,8,2587,"Brother Sun, Sister Moon",cf,5.0
+3,8,2990,Pacific Heights,cf,5.0
+4,8,1414,Lovers of the Arctic Circle,cf,4.5
+5,8,72479,Lightning Strikes Twice,cf,4.5
+6,8,2998,Zabriskie Point,cf,4.5
+7,8,54272,Adventures of Zatôichi,cf,4.5
+8,8,8332,Antibodies,cf,4.5
+9,8,309,The Celebration,cf,4.5
+0,8,1726,Iron Man,cb,0.0
+1,8,1734,The Mummy Returns,cb,0.0
+2,8,409,The English Patient,cb,0.0
+3,8,85,Raiders of the Lost Ark,cb,0.0
+4,8,947,Lawrence of Arabia,cb,0.0
+5,8,574,The Man Who Knew Too Much,cb,0.0
+6,8,564,The Mummy,cb,0.0
+7,8,6415,Three Kings,cb,0.0
+8,8,691,The Spy Who Loved Me,cb,0.0
+9,8,708,The Living Daylights,cb,0.0
+0,9,1970,The Grudge,cf,4.5
+1,9,233,The Wanderers,cf,4.5
+2,9,112735,The Skinny,cf,4.5
+3,9,4499,"Pepi, Luci, Bom",cf,4.5
+4,9,2022,Mr. Deeds,cf,4.5
+5,9,31410,My Sweet Little Village,cf,4.5
+6,9,31221,Dragon Hunter,cf,4.5
+7,9,8460,The Skulls II,cf,4.5
+8,9,5187,Three of Hearts,cf,4.5
+9,9,3117,Frankenstein and the Monster from Hell,cf,4.5
+0,9,435,The Day After Tomorrow,cb,0.13066178723133018
+1,9,1979,Fantastic 4: Rise of the Silver Surfer,cb,0.10596208900857436
+2,9,956,Mission: Impossible III,cb,0.10191543814584889
+3,9,2266,"Paris, je t'aime",cb,0.09190214700514904
+4,9,5879,In the Realm of the Senses,cb,0.0872754349414854
+5,9,818,Austin Powers in Goldmember,cb,0.08207586790737181
+6,9,34326,"The Yakuza Papers, Vol. 1: Battles Without Honor and Humanity",cb,0.07517516730722185
+7,9,1735,The Mummy: Tomb of the Dragon Emperor,cb,0.06880104990285602
+8,9,31104,Pigs and Battleships,cb,0.06240236956183229
+9,9,272,Batman Begins,cb,0.05254750610015976
+0,10,1413,M. Butterfly,cf,5.0
+1,10,229,Bride of Frankenstein,cf,5.0
+2,10,38304,Far Away,cf,5.0
+3,10,50794,The Even Stevens Movie,cf,4.5
+4,10,130450,The Lonedale Operator,cf,4.5
+5,10,75803,Catching Hell,cf,4.5
+6,10,55207,Gaslight,cf,4.5
+7,10,2072,Cyberjack,cf,4.5
+8,10,378,Raising Arizona,cf,4.5
+9,10,7211,Dan in Real Life,cf,4.5
+0,10,2000,Aguirre: The Wrath of God,cb,0.0840905449276644
+1,10,25763,Damnation Alley,cb,0.08031512284187585
+2,10,698,Moonraker,cb,0.07479468450054831
+3,10,2331,Jesus,cb,0.07157107424585883
+4,10,5227,Hercules in New York,cb,0.0701091575989773
+5,10,348,Alien,cb,0.06751638744131631
+6,10,80717,Violeta Went to Heaven,cb,0.06249714382499105
+7,10,931,Don't Look Now,cb,0.054624932767261464
+8,10,5850,Times and Winds,cb,0.052029449272333286
+9,10,1858,Transformers,cb,0.050376925581929834
