@@ -134,11 +134,19 @@ def recommendation(profile):
 
     film_cf = list()
     film_cb = list()
-
+    ids_films_profile_seen = list()
+    profile_seen = list()
+    
     for index, row in recommandations_dataset.iterrows():
         if row['userId'] == user_id:
-            film_cf.append(Item.get_item(int(row['id_cf'])))
-            film_cb.append(Item.get_item(int(row['id_cb'])))
+            if row['type_r'] == 'cf':
+                film_cf.append(Item.get_item(int(row['movieId'])))
+            elif row['type_r'] == 'cb':
+                film_cb.append(Item.get_item(int(row['movieId'])))
 
+    ids_films_profile_seen = Profile.get_films(profile).split(", ")
 
-    return film_cf, film_cb, interest, language
+    for id_film in ids_films_profile_seen:
+        profile_seen.append(Item.get_item(int(id_film)))
+
+    return film_cf, film_cb, profile_seen, interest, language

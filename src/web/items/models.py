@@ -86,6 +86,14 @@ class Profile(models.Model):
             return getattr(query, 'user_id')
         except:
             return ""
+    
+    def get_films(name):
+        try:
+            query = Profile.objects.get(username=name)
+            return getattr(query, 'history_films')
+        except:
+            return ""
+
 
 
 class Item(models.Model):
