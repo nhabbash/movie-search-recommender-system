@@ -75,6 +75,8 @@ complete_data = complete_data[np.isfinite(complete_data['rating'])]
 
 item_enc = LabelEncoder()
 complete_data['movieId'] = item_enc.fit_transform(complete_data['id'].values)
+user_enc = LabelEncoder()
+complete_data['user_id'] = user_enc.fit_transform(complete_data['userId'].values)
 
 complete_data.to_csv('../data/dataset_rs.csv', index= False)
 
