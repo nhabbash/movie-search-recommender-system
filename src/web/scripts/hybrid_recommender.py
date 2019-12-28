@@ -92,7 +92,8 @@ def recommender_cf(user_id):
     all_movie = list(set(dataset['movieId'].values))    
     new_film = list(set(all_movie) - set(old_movie))
     random_film = random.sample(new_film, 50)
-    pred=model.predict([[user_id]*50, np.array(random_film)])
+    temp_id = int(dataset.query('userId == '+str(user_id))['user_id'].values[0])
+    pred=model.predict([[temp_id]*50, np.array(random_film)])
     couple = list(zip(pred, random_film))
     top_couple = sorted(couple, key = lambda x : x[0])[-11:-1]
     top_movieId = [x[1] for x in top_couple][:: -1]
@@ -105,6 +106,7 @@ def recommender_cf(user_id):
     data = {'userId': [user_id]*10, 'movieId':id_movie, 'title':title_movie, 'type_r':['cf']*10,'rank':top_rate}  
     return pd.DataFrame(data)
     
+    
 list_users = list(user_profile['user_id'].values) 
 
 metadata_u = metadata_user(list_users[0])
@@ -113,13 +115,13 @@ id_u = list_users[0]
 df_cf = recommender_cf(id_u)
 df_cb = recommender_cb(metadata_u,bow_u,id_u)
 df = df_cf.append(df_cb)
-for i in range(1,10):
-    metadata_u = metadata_user(list_users[i])
-    bow_u = ast.literal_eval(user_profile['bow'].values[i])
-    id_u = list_users[i]
-    b = recommender_cf(id_u)
-    a = recommender_cb(metadata_u,bow_u,id_u)
-    tmp = b.append(a)
-    df = df.append(tmp)
-	
+if len(list_users) > 1:
+    for i in range(1,len(list_users)):
+        metadata_u = metadata_user(list_users[i])
+        bow_u = ast.literal_eval(user_profile['bow'].values[i])
+        id_u = list_users[i]
+        b = recommender_cf(id_u)
+        a = recommender_cb(metadata_u,bow_u,id_u)
+        tmp = b.append(a)
+        df = df.append(tmp)
 df.to_csv('./data/user_recommender.csv', index = False)
