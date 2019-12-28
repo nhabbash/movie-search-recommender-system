@@ -70,21 +70,27 @@ def map_user(user, tf):
     return user_comp_bow
 
 def recommender_cb(user_metadata, user_bow, user_id):
-    movies_user = filter_metadata(user_metadata)
-    tf = TfidfVectorizer()
+    movies_user = dataset
+    movies_user = movies_user.drop_duplicates(subset='id', keep="last")
+    tf = TfidfVectorizer()   
     tfidf_matrix = tf.fit_transform(movies_user['overv_pp'])
     cosine_similarities = linear_kernel(np.array([map_user(user_bow, tf)]), tfidf_matrix)[0]
-    final_movies = []
-    cs_sort = cosine_similarities.argsort()[::-1][0:10]
+    cs_sort = cosine_similarities.argsort()[::-1]
+    history_films = literal_eval(user_profile.query("user_id == "+str(user_id))['film_ratings'].values[0])
+    history_films = [i[0] for i in history_films]
     id_films = []
     rank = []
     for i in cs_sort:
-        id_films.append(movies_user['id'].values[i])
-        rank.append(cosine_similarities[i])
+        if not(movies_user['id'].values[i] in history_films):
+            id_films.append(movies_user['id'].values[i])
+            rank.append(cosine_similarities[i])
+        if len(id_films) == 10 :
+	    break
+    final_movies = []
     for i in id_films:
         final_movies.append(movies_user.query("id == "+str(i)).head(1)['title'].values[0])
     return pd.DataFrame({'userId': [user_id]*10,'movieId':id_films, 'title':final_movies, 'type_r':['cb']*10,'rank':rank})
-	
+
 def recommender_cf(user_id):
     movie_view = dataset.query("userId == "+ str(user_id))
     old_movie = movie_view['movieId'].values
