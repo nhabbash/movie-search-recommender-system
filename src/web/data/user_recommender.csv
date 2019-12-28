@@ -1,0 +1,221 @@
+userId,movieId,title,type_r,rank
+999,1837,The Secret,cf,5.0
+999,77866,Contraband,cf,5.0
+999,185,A Clockwork Orange,cf,5.0
+999,2255,Chasing Amy,cf,5.0
+999,1482,Laws of Gravity,cf,5.0
+999,806,The Omen,cf,5.0
+999,943,Lethal Weapon 3,cf,5.0
+999,1024,Heavenly Creatures,cf,4.5
+999,107999,The Bride Goes Wild,cf,4.5
+999,5302,Without You I'm Nothing,cf,4.5
+999,938,For a Few Dollars More,cb,0.10682900588483585
+999,2154,The Dark Side of The Moon,cb,0.10159027298157455
+999,6950,Outbreak,cb,0.09952813070532382
+999,2160,Voyage to the Bottom of the Sea,cb,0.09690238830989067
+999,97797,Dead Daughters,cb,0.09297173244931092
+999,6974,The Angry Red Planet,cb,0.09295995200090103
+999,4993,5 Card Stud,cb,0.09218473051094628
+999,2787,Pitch Black,cb,0.09088620675095349
+999,6058,The Patriot,cb,0.08841728112971137
+999,2067,Mission to Mars,cb,0.08831665998491764
+1000,1277,Gloomy Sunday,cf,4.5
+1000,2117,Sophie Scholl: The Final Days,cf,4.5
+1000,879,Hook,cf,4.5
+1000,47122,Flaming Creatures,cf,4.5
+1000,928,Gremlins 2: The New Batch,cf,4.5
+1000,800,Los Olvidados,cf,4.5
+1000,1581,The Holiday,cf,4.5
+1000,761,The Wing or the Thigh,cf,4.5
+1000,2006,"Bell, Book and Candle",cf,4.5
+1000,3483,The Blood of Fu Manchu,cf,4.0
+1000,953,Madagascar,cb,0.1622364270194229
+1000,2144,One Night at McCool's,cb,0.11592078602866204
+1000,8645,The Happening,cb,0.10372267030123508
+1000,48780,Boat,cb,0.10309662647687301
+1000,5125,Rendition,cb,0.08938046578281444
+1000,4993,5 Card Stud,cb,0.08866526691004817
+1000,52528,Bloodbath at the House of Death,cb,0.08807714819433987
+1000,2762,Young and Innocent,cb,0.08759823739946283
+1000,189,Sin City: A Dame to Kill For,cb,0.08409293942002793
+1000,4232,Scream,cb,0.0800929419009249
+1001,801,"Good Morning, Vietnam",cf,5.0
+1001,85414,Brake,cf,5.0
+1001,25744,A Slit-Mouthed Woman,cf,4.5
+1001,8332,Antibodies,cf,4.5
+1001,389,12 Angry Men,cf,4.5
+1001,1978,Stage Fright,cf,4.5
+1001,3632,Flash Gordon,cf,4.5
+1001,1957,Enough,cf,4.5
+1001,3536,U-571,cf,4.5
+1001,1408,Cutthroat Island,cf,4.5
+1001,1942,Bunny Lake Is Missing,cb,0.19008796102398645
+1001,1410,Dark Star,cb,0.16084296229552733
+1001,1272,Sunshine,cb,0.15080044737271525
+1001,635,Angel Heart,cb,0.14432882387453433
+1001,1672,The Professional,cb,0.13939432673890417
+1001,2761,Secret Agent,cb,0.1386400878039783
+1001,95963,The Walking Dead,cb,0.1338810038333879
+1001,65310,Hornblower: Loyalty,cb,0.1309872299574385
+1001,1369,Rambo: First Blood Part II,cb,0.12999409368282894
+1001,2024,The Patriot,cb,0.12021901091243839
+1002,1956,Gerry,cf,5.0
+1002,46948,Power,cf,5.0
+1002,79,Hero,cf,4.5
+1002,8699,Anchorman: The Legend of Ron Burgundy,cf,4.5
+1002,204,The Wages of Fear,cf,4.5
+1002,6404,Nosferatu the Vampyre,cf,4.5
+1002,8970,The Out-of-Towners,cf,4.5
+1002,1991,Death Proof,cf,4.5
+1002,26810,A Common Thread,cf,4.5
+1002,25898,Babes in Toyland,cf,4.5
+1002,8460,The Skulls II,cb,0.17321676960929566
+1002,43635,My Rainy Days,cb,0.15010752049379686
+1002,26147,FC Venus,cb,0.14341485795099118
+1002,89492,This Is 40,cb,0.12713604333228648
+1002,5165,L'Avventura,cb,0.12291775043547942
+1002,2180,Heartbreak Hotel,cb,0.12221074002029741
+1002,7088,Christmas in Boston,cb,0.12042561912431704
+1002,245,About a Boy,cb,0.11833139588558714
+1002,343,Harold and Maude,cb,0.1118508624788011
+1002,64983,Barocco,cb,0.110771935585019
+1003,1542,Office Space,cf,4.5
+1003,1963,The Bow,cf,4.5
+1003,2085,Romeo Must Die,cf,4.5
+1003,1250,Ghost Rider,cf,4.5
+1003,1968,Fools Rush In,cf,4.5
+1003,27397,Crossing Delancey,cf,4.5
+1003,1414,Lovers of the Arctic Circle,cf,4.5
+1003,5825,National Lampoon's Christmas Vacation,cf,4.5
+1003,84772,Hell's Hinges,cf,4.0
+1003,2798,Oscar,cf,4.0
+1003,110553,Austin High,cb,0.20333962307649908
+1003,86332,The Redeemer: Son of Satan!,cb,0.16499362933361433
+1003,4643,The Guardian,cb,0.1502403943631195
+1003,34583,The Final,cb,0.14727638663598058
+1003,70418,Wasted on the Young,cb,0.1407704082600633
+1003,838,American Graffiti,cb,0.13634576620917174
+1003,1807,Elephant,cb,0.12896631817648402
+1003,7340,Carrie,cb,0.12797350544845446
+1003,5168,To Be and to Have,cb,0.12567425147470057
+1003,1976,Jezebel,cb,0.12307435969742467
+1004,3125,Dracula vs. Frankenstein,cf,5.0
+1004,1482,Laws of Gravity,cf,5.0
+1004,1875,Fantomas vs. Scotland Yard,cf,5.0
+1004,51540,Horrible Bosses,cf,5.0
+1004,467,The Hole,cf,5.0
+1004,92751,Werewolf Woman,cf,5.0
+1004,3966,Blondie Knows Best,cf,5.0
+1004,2330,Taxi,cf,5.0
+1004,34530,The Human Condition III: A Soldier's Prayer,cf,5.0
+1004,547,The Horse Whisperer,cf,4.5
+1004,43396,Union Station,cb,0.22743373716112097
+1004,61348,The Lost Valentine,cb,0.15094237136710995
+1004,160,The Arrival of a Train at La Ciotat,cb,0.1343348671743566
+1004,4638,Hot Fuzz,cb,0.12180170168439458
+1004,5236,Kiss Kiss Bang Bang,cb,0.11128945389768144
+1004,4949,A Time for Killing,cb,0.11109688456509965
+1004,3083,Mr. Smith Goes to Washington,cb,0.10029602902252713
+1004,4141,Shoot 'Em Up,cb,0.1000510194226912
+1004,86320,Twenty Years Later,cb,0.09863780896105007
+1004,922,Dead Man,cb,0.09841339871568655
+1005,77866,Contraband,cf,5.0
+1005,39446,At Risk,cf,5.0
+1005,111,Scarface,cf,5.0
+1005,11299,Cowboy Bebop: The Movie,cf,4.5
+1005,31162,Black Lightning,cf,4.5
+1005,1717,All the King's Men,cf,4.5
+1005,4479,Les Misérables,cf,4.5
+1005,26947,Gamera vs. Guiron,cf,4.5
+1005,3025,The Two Faces of Dr. Jekyll,cf,4.5
+1005,465,Junior Size 36,cf,4.5
+1005,268,Batman,cb,0.16040138927940395
+1005,415,Batman & Robin,cb,0.15676099592799964
+1005,1406,City Slickers,cb,0.12701145911851153
+1005,54732,Silly Little Game,cb,0.11846249917417741
+1005,104374,Woman of the Lake,cb,0.1139135949619037
+1005,89904,The Demolitionist,cb,0.11356336336153555
+1005,2442,The Final Cut,cb,0.11119450086423743
+1005,8987,The River Wild,cb,0.09833383905132467
+1005,54734,Small Potatoes: Who Killed the USFL?,cb,0.09788105387191487
+1005,97936,Sweet November,cb,0.09483691396633886
+1006,982,The Manchurian Candidate,cf,5.0
+1006,1956,Gerry,cf,5.0
+1006,3102,My Step Brother Frankenstein,cf,4.5
+1006,1404,Ae Fond Kiss...,cf,4.5
+1006,2966,"20,000 Leagues Under the Sea",cf,4.5
+1006,1999,In the Bedroom,cf,4.5
+1006,2004,Kebab Connection,cf,4.5
+1006,112582,Fraternity Demon,cf,4.5
+1006,2433,The Young Girls of Rochefort,cf,4.5
+1006,3030,End of the World,cf,4.5
+1006,108949,Insiang,cb,0.15059968765672446
+1006,2370,Topaz,cb,0.14810755518993493
+1006,8832,Il Divo,cb,0.14335532094616749
+1006,85788,Margaret Thatcher: The Long Walk to Finchley,cb,0.13739309751210305
+1006,5146,The In-Laws,cb,0.12501881949843438
+1006,4787,Cassandra's Dream,cb,0.12337609859823258
+1006,3013,Bloodline,cb,0.1229043653246947
+1006,1165,The Queen,cb,0.11306342119330695
+1006,1985,The Constant Gardener,cb,0.11044834851537491
+1006,1941,Exodus,cb,0.11043986802050537
+1007,1970,The Grudge,cf,5.0
+1007,43391,The Flying Saucer,cf,5.0
+1007,1996,Lara Croft Tomb Raider: The Cradle of Life,cf,5.0
+1007,1875,Fantomas vs. Scotland Yard,cf,5.0
+1007,5991,The Last Laugh,cf,5.0
+1007,11299,Cowboy Bebop: The Movie,cf,4.5
+1007,6187,Dry Cleaning,cf,4.5
+1007,504,Monster,cf,4.5
+1007,3035,Frankenstein,cf,4.5
+1007,8491,Weekend at Bernie's,cf,4.5
+1007,69278,Phase 7,cb,0.22187881991904418
+1007,805,Rosemary's Baby,cb,0.1994434480886569
+1007,867,Sliver,cb,0.16127161464356216
+1007,27904,Syndromes and a Century,cb,0.1593808791704461
+1007,3007,Woman in the Moon,cb,0.12194048341273567
+1007,521,Dial M for Murder,cb,0.12092454166470758
+1007,1555,The Spanish Apartment,cb,0.11979070373144188
+1007,54768,Zapped Again!,cb,0.10916304862445167
+1007,2058,Addicted to Love,cb,0.10689604205139003
+1007,606,Out of Africa,cb,0.10605543599299858
+1008,1979,Fantastic 4: Rise of the Silver Surfer,cf,5.0
+1008,33358,The Mostly Unfabulous Social Life of Ethan Green,cf,5.0
+1008,8982,The Protector,cf,5.0
+1008,108548,Voyage to the Beginning of the World,cf,5.0
+1008,2501,The Bourne Identity,cf,4.5
+1008,383,Mala Noche,cf,4.5
+1008,1523,The Last King of Scotland,cf,4.5
+1008,37736,Take Out,cf,4.5
+1008,1487,Hellboy,cf,4.5
+1008,265,Lili Marleen,cf,4.5
+1008,2669,The Bounty,cb,0.28222632857039703
+1008,670,Oldboy,cb,0.10944724573064159
+1008,31156,Dante's Hell Animated,cb,0.10142087734413416
+1008,2789,The Chronicles of Riddick,cb,0.09921276732118883
+1008,436352,Return to Montauk,cb,0.09909212220350275
+1008,88812,The Hucksters,cb,0.09868317006616298
+1008,45987,Taira Clan Saga,cb,0.09854138679445673
+1008,1624,Liar Liar,cb,0.09769196003124518
+1008,938,For a Few Dollars More,cb,0.09558263335073297
+1008,4271,Life Is a Long Quiet River,cb,0.09305371204137933
+1009,90888,Monster High,cf,5.0
+1009,51277,Now and Forever,cf,5.0
+1009,152,Star Trek: The Motion Picture,cf,5.0
+1009,52913,Little Italy,cf,5.0
+1009,2005,Sister Act,cf,5.0
+1009,272,Batman Begins,cf,4.5
+1009,63540,To the Sea!,cf,4.5
+1009,4477,The Devil's Own,cf,4.5
+1009,1391,Y Tu Mamá También,cf,4.5
+1009,857,Saving Private Ryan,cf,4.5
+1009,110553,Austin High,cb,0.19381347311622762
+1009,1609,There's Only One Jimmy Grimble,cb,0.17797124021102506
+1009,5168,To Be and to Have,cb,0.16934298586996768
+1009,86332,The Redeemer: Son of Satan!,cb,0.15726393045967602
+1009,1807,Elephant,cb,0.14396594188969047
+1009,34583,The Final,cb,0.1403767134514117
+1009,6636,The Mugger,cb,0.128812373261091
+1009,70418,Wasted on the Young,cb,0.1271520052476588
+1009,4643,The Guardian,cb,0.1221535404148046
+1009,59810,The Least of These,cb,0.11857428630072614
