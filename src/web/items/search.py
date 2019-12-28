@@ -29,7 +29,6 @@ def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
         synonyms_value = "false"
 
     if personalized :
-        profile = profile.lower()
         interest = Profile.get_genre_preferences(profile)
         language = Profile.get_language(profile)
 
@@ -137,7 +136,6 @@ def clean_film_rating(dirty_films_rating):
 
 def recommendation(profile):
 
-    profile = profile.lower()
     user_id = Profile.get_id(profile)
     interest = Profile.get_genre_preferences(profile)
     language = Profile.get_language(profile)
