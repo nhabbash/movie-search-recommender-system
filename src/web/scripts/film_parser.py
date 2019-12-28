@@ -62,5 +62,13 @@ if not os.path.exists('src/web/data/parsed_dataset.csv'):
 
 
 parsed_data = pd.read_csv('src/web/data/parsed_dataset.csv', delimiter=";", keep_default_na=False)
-#for language in parsed_data.spoken_languages.unique():
+# for language in parsed_data.spoken_languages.unique():
 #    print(language)
+# 1008,Daenerys,bg,1994-12-12,"Mystery, War, Adventure"," ro, tr, ar, bg"
+
+for index, row in movie_dataset.iterrows():
+    if ('Adventure' in row['genres'] or 'Mystery' in row['genres'] or 'War' in row['genres']) and ('ro' in row['spoken_languages'] or 
+        'tr' in row['spoken_languages'] or 'ar' in row['spoken_languages'] or 'bg' in row['spoken_languages']):
+        print(row['id'])
+        print(row['title'])
+        print("")
