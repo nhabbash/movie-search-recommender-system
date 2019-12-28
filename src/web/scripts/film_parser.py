@@ -61,9 +61,6 @@ if not os.path.exists('src/web/data/parsed_dataset.csv'):
 
 
 
-'''parsed_data = pd.read_csv('src/web/data/parsed_dataset.csv', delimiter=";", keep_default_na=False)
+parsed_data = pd.read_csv('src/web/data/parsed_dataset.csv', delimiter=";", keep_default_na=False)
 #for language in parsed_data.spoken_languages.unique():
 #    print(language)
-
-for genre in parsed_data.genres.unique():
-    print(genre)'''

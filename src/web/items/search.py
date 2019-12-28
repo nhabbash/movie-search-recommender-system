@@ -146,7 +146,7 @@ def recommendation(profile):
 
     ids_films_profile_seen = Profile.get_films(profile).split(", ")
 
-    for id_film in ids_films_profile_seen:
-        profile_seen.append(Item.get_item(int(id_film)))
+    #for id_film in ids_films_profile_seen:
+    #    profile_seen.append(Item.get_item(id_film))
 
     return film_cf, film_cb, profile_seen, interest, language
