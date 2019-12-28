@@ -17,7 +17,7 @@ class Profile(models.Model):
 
     # Profiling info
     genre_preferences = models.TextField(blank = True)
-    history_films = models.TextField(blank = True)
+    film_ratings = models.TextField(blank = True)
     language = models.TextField(blank = True)
 
     def __str__(self):
@@ -49,7 +49,7 @@ class Profile(models.Model):
             print("Error:", e)
             print("Couldn't clear DB")
 
-        users_dataset = pd.read_csv('./data/users.csv', delimiter = ";", keep_default_na=False)
+        users_dataset = pd.read_csv('./data/users.csv', delimiter = ",", keep_default_na=False)
 
         print("Populating")
         cls.objects.bulk_create([
@@ -59,7 +59,7 @@ class Profile(models.Model):
                 location=row['location'],
                 birth_date=row['birth_date'],
                 genre_preferences=row['genre_preferences'],
-                history_films=row['history_films'],
+                film_ratings=row['film_ratings'],
                 language=row['language']
             )
             for _, row in users_dataset.iterrows()

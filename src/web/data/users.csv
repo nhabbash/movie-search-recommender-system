@@ -1,2 +1,3 @@
 user_id,username,location,birth_date,genre_preferences,language,film_ratings
 999,dodicin,it,1996-02-18,"Animation","it,en,ja","[(12140, 4), (4977, 4), (18491, 5), (11299, 3), (378064, 5)]"
+1000,Geralt,it,1995-8-10,"Adventure, Fantasy, Family","it","[(1371, 2.5), (2105, 4.0), (2193, 2.0), (2294, 2.0), (1405, 1.0)]"
