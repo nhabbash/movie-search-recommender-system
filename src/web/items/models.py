@@ -90,7 +90,7 @@ class Profile(models.Model):
     def get_films(name):
         try:
             query = Profile.objects.get(username=name)
-            return getattr(query, 'history_films')
+            return getattr(query, 'film_ratings')
         except:
             return ""
 

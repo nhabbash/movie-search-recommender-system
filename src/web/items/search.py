@@ -123,6 +123,16 @@ def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
 
     return items, interest, language
 
+def clean_film_rating(dirty_films_rating): 
+    films_with_rating = dirty_films_rating.replace("[", "").replace("]", "").replace(" ", "").replace("(", "").replace(")", "").split(",")
+    films = list()
+    index = 0
+    for value in films_with_rating:
+        if index%2 == 0:
+            films.append(value)
+        index += 1
+
+    return films
 
 def recommendation(profile):
 
@@ -144,9 +154,9 @@ def recommendation(profile):
             elif row['type_r'] == 'cb':
                 film_cb.append(Item.get_item(int(row['movieId'])))
 
-    ids_films_profile_seen = Profile.get_films(profile).split(", ")
+    ids_films_profile_seen = clean_film_rating(Profile.get_films(profile))
 
-    #for id_film in ids_films_profile_seen:
-    #    profile_seen.append(Item.get_item(id_film))
+    for id_film in ids_films_profile_seen:
+        profile_seen.append(Item.get_item(id_film))
 
     return film_cf, film_cb, profile_seen, interest, language

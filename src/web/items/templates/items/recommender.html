@@ -94,8 +94,40 @@
         </div>
         <div class="row left">
             <h6 class="header col s12 light black-text text-lighten-1">Based on following film...</h6>
-          </div> <br>
-        ############ inserire visualizzazione film visti dall'utente <br> <br>
+          </div> 
+          <div class="row">
+            <div class="col s24">
+                <table class="centered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Poster</th> 
+                            <th>Title</th>
+                            <th>Overview</th>
+                            <th>Language</th>
+                            <th>Genres</th>
+                            <th>Average vote</th>
+                            <th>Vote count</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if profile_seen %}
+                            {% for film in profile_seen %}
+                                <tr>
+                                    <td><img class="responsive-img" src= "{{film.poster_path}}" /></td>
+                                    <td>{{ film.title }}</td>
+                                    <td class="overview">{{ film.overview }}</td>
+                                    <td>{{ film.spoken_lan }}</td>
+                                    <td>{{ film.genres }}</td>
+                                    <td>{{ film.vote_average }}</td>
+                                    <td>{{ film.vote_count }}</td>
+                                    </tr>
+                                <tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
         <div class="row left">
             <h6 class="header col s12 light black-text text-lighten-1">Content Based Recommandations:</h6>
           </div>
