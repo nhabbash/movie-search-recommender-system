@@ -24,7 +24,7 @@ def add_user_custom_ratings():
                         "movieId": film[0],
                         "rating": film[1]}, ignore_index=True)
     
-    ratings.to_csv('../data/ratings_small_extended.csv',index = False)
+    ratings.to_csv('../data/ratings_small_extended.csv',index= False)
 
 add_user_custom_ratings()
 
@@ -80,7 +80,11 @@ complete_data.to_csv('../data/dataset_rs.csv', index= False)
 
 #create user final , add bow and history_films with ratings
 def create_bow_user(userId):
-    data = complete_data.query("userId == "+str(userId))[0:5]
+    ids = users.query("user_id == "+str(userId))['film_ratings'].values[0]
+    ids = literal_eval(ids)
+    ids = [i[0] for i in ids]
+    data = complete_data[complete_data['id'].isin(ids)]
+    data = data.drop_duplicates(subset='id', keep="last")
     tf_u = TfidfVectorizer()
     tfidf_matrix_u = tf_u.fit_transform(data['overv_pp'])
     user_bow = [tfidf_matrix_u.toarray()[0], tf_u.get_feature_names()]
@@ -100,7 +104,7 @@ for i in users['user_id'].values:
     tmp = create_bow_user(i)
     bow_list.append(tmp[0:1])
     film_list.append(list(zip(tmp[1],tmp[2])))
-user_dic = {'history_films':film_list, 'bow':bow_list}
+user_dic = {'bow':bow_list}
 
 user_dataframe = pd.DataFrame(user_dic)
 
