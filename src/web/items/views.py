@@ -17,11 +17,10 @@ class SearchView(FormView):
         context = super(SearchView, self).get_context_data(**kwargs)
         data = defaultdict(int, self.request.GET.dict())
 
-        if profile:
-            profile = profile.lower()
-
         q = data["query"]
         profile = data["profile"]
+        if profile:
+            profile = profile.lower()
         ps = data["personalized"]
         fuzzy = data["fuzzy"]
         synonyms = data["synonyms"]
@@ -54,7 +53,6 @@ class RecommenderView(FormView):
             profile = profile.lower()
 
         film_cf, film_cb, profile_seen, u_interest, u_language = search.recommendation(profile)
-
 
         context['film_cb'] = film_cb
         context['film_cf'] = film_cf

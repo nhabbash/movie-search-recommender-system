@@ -112,16 +112,18 @@
                     <tbody>
                         {% if profile_seen %}
                             {% for film in profile_seen %}
-                                <tr>
-                                    <td><img class="responsive-img" src= "{{film.poster_path}}" /></td>
-                                    <td>{{ film.title }}</td>
-                                    <td class="overview">{{ film.overview }}</td>
-                                    <td>{{ film.spoken_lan }}</td>
-                                    <td>{{ film.genres }}</td>
-                                    <td>{{ film.vote_average }}</td>
-                                    <td>{{ film.vote_count }}</td>
-                                    </tr>
-                                <tr>
+                                {% if film %}
+                                    <tr>
+                                        <td><img class="responsive-img" src= "{{film.poster_path}}" /></td>
+                                        <td>{{ film.title }}</td>
+                                        <td class="overview">{{ film.overview }}</td>
+                                        <td>{{ film.spoken_lan }}</td>
+                                        <td>{{ film.genres }}</td>
+                                        <td>{{ film.vote_average }}</td>
+                                        <td>{{ film.vote_count }}</td>
+                                        </tr>
+                                    <tr>
+                                {% endif %}
                             {% endfor %}
                         {% endif %}
                     </tbody>
