@@ -12,3 +12,4 @@ class SearchForm(forms.Form):
 
 class RecommenderForm(forms.Form):
     profile = forms.CharField(required=False, label='User...')
+    filtering = forms.BooleanField(required=False)

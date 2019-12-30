@@ -48,11 +48,12 @@ class RecommenderView(FormView):
         data = defaultdict(int, self.request.GET.dict())
 
         profile = data["profile"]
+        filtering = data['filtering']
 
         if profile:
             profile = profile.lower()
 
-        film_cf, film_cb, profile_seen, u_interest, u_language = search.recommendation(profile)
+        film_cf, film_cb, profile_seen, u_interest, u_language = search.recommendation(profile, filtering)
 
         context['film_cb'] = film_cb
         context['film_cf'] = film_cf

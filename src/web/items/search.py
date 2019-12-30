@@ -134,13 +134,16 @@ def clean_film_rating(dirty_films_rating):
 
     return films
 
-def recommendation(profile):
+def recommendation(profile, filtering):
 
     user_id = Profile.get_id(profile)
     interest = Profile.get_genre_preferences(profile)
     language = Profile.get_language(profile)
 
-    recommandations_dataset = pd.read_csv('./data/user_recommender.csv', keep_default_na=False)
+    if not filtering:
+        recommandations_dataset = pd.read_csv('./data/user_recommender.csv', keep_default_na=False)
+    else:
+        return "", "", "", "", ""
 
     film_cf = list()
     film_cb = list()
