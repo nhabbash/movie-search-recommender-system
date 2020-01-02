@@ -143,7 +143,7 @@ def recommendation(profile, filtering):
     if not filtering:
         recommandations_dataset = pd.read_csv('./data/user_recommender.csv', keep_default_na=False)
     else:
-        return "", "", "", "", ""
+        recommandations_dataset = pd.read_csv('./data/user_recommender_filter.csv', keep_default_na=False)
 
     film_cf = list()
     film_cb = list()
