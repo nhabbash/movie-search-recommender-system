@@ -13,7 +13,7 @@
   
  <style>
     #advanced {
-        display:none;
+        display: block;
     }
 
     table {
@@ -75,7 +75,7 @@
                     </div>
                 </div> 
                 <div class="row">
-                    <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Advanced Options</a>
+                    <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Hide Advanced Options</a>
                 </div>
                 <div id="advanced">
                     <div class="switch row">
@@ -188,7 +188,7 @@
   </body>
       
   <script>
-        var showAdvanced = 0;
+        var showAdvanced = 1;
         var advancedSec = document.getElementById("advanced");
 
         function show()

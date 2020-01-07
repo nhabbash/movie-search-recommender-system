@@ -12,8 +12,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   
  <style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+    }
+
     #advanced {
-        display:none;
+        display: block;
     }
 
     table {
@@ -69,7 +75,7 @@
                     </div>
                 </div> 
                 <div class="row">
-                    <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Advanced Options</a>
+                    <a class="waves-effect waves-teal btn-flat btn-small" id="hide" onclick="show();">Hide Advanced Options</a>
                 </div>
                 <div id="advanced">
                     <div class="switch row">
@@ -107,43 +113,24 @@
             </div>
         </div>
         <div class="row left">
-            <h6 class="header col s12 light black-text text-lighten-1">Based on following film...</h6>
-          </div> 
-          <div class="row">
-            <div class="col s24">
-                <table class="centered responsive-table">
-                    <thead>
-                        <tr>
-                            <th>Poster</th> 
-                            <th>Title</th>
-                            <th>Overview</th>
-                            <th>Language</th>
-                            <th>Genres</th>
-                            <th>Average vote</th>
-                            <th>Vote count</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% if profile_seen %}
-                            {% for film in profile_seen %}
-                                {% if film %}
-                                    <tr>
-                                        <td><img class="responsive-img" src= "{{film.poster_path}}" /></td>
-                                        <td>{{ film.title }}</td>
-                                        <td class="overview">{{ film.overview }}</td>
-                                        <td>{{ film.spoken_lan }}</td>
-                                        <td>{{ film.genres }}</td>
-                                        <td>{{ film.vote_average }}</td>
-                                        <td>{{ film.vote_count }}</td>
-                                        </tr>
-                                    <tr>
-                                {% endif %}
-                            {% endfor %}
+            <h6 class="header col s12 light black-text text-lighten-1">User ratings</h6>
+        </div> 
+        <div class="row">
+            <div class="grid-container">
+                {% if profile_seen %}
+                    {% for item in profile_seen %}
+                        {% if item.film %}
+                            <div class="movie-obj centered">
+                                <img class="responsive-img" src= "{{item.film.poster_path}}" /> <br>
+                                <b>{{ item.film.title }} <br>
+                                <h4>{{ item.score }}/5</h4></b>
+                            </div>
+
                         {% endif %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                {% endif %}
             </div>
-    </div>
+        </div>
         <div class="row left">
             <h6 class="header col s12 light black-text text-lighten-1">Content Based Recommandations:</h6>
           </div>
@@ -224,7 +211,7 @@
   </body>
       
   <script>
-        var showAdvanced = 0;
+        var showAdvanced = 1;
         var advancedSec = document.getElementById("advanced");
 
         function show()

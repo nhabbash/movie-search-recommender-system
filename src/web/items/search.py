@@ -3,6 +3,7 @@ from items.documents import ItemDocument
 from elasticsearch_dsl.query import Q
 from .models import Profile, Item
 import pandas as pd
+import ast
 
 def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
 
@@ -124,42 +125,47 @@ def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
     return items, interest, language
 
 def clean_film_rating(dirty_films_rating): 
-    films_with_rating = dirty_films_rating.replace("[", "").replace("]", "").replace(" ", "").replace("(", "").replace(")", "").split(",")
+    # films_with_rating = dirty_films_rating.replace("[", "").replace("]", "").replace(" ", "").replace("(", "").replace(")", "").split(",")
+    films_with_rating = ast.literal_eval(dirty_films_rating)
     films = list()
     index = 0
-    for value in films_with_rating:
-        if index%2 == 0:
-            films.append(value)
-        index += 1
-
+    films = films_with_rating
     return films
 
 def recommendation(profile, filtering):
 
-    user_id = Profile.get_id(profile)
-    interest = Profile.get_genre_preferences(profile)
-    language = Profile.get_language(profile)
-
-    if not filtering:
-        recommandations_dataset = pd.read_csv('./data/user_recommender.csv', keep_default_na=False)
-    else:
-        recommandations_dataset = pd.read_csv('./data/user_recommender_filter.csv', keep_default_na=False)
-
     film_cf = list()
     film_cb = list()
-    ids_films_profile_seen = list()
     profile_seen = list()
-    
-    for index, row in recommandations_dataset.iterrows():
-        if row['userId'] == user_id:
-            if row['type_r'] == 'cf':
-                film_cf.append(Item.get_item(int(row['movieId'])))
-            elif row['type_r'] == 'cb':
-                film_cb.append(Item.get_item(int(row['movieId'])))
+    interest = ""
+    language = ""
 
-    ids_films_profile_seen = clean_film_rating(Profile.get_films(profile))
+    if profile:
+        user_id = Profile.get_id(profile)
+        interest = Profile.get_genre_preferences(profile)
+        language = Profile.get_language(profile)
 
-    for id_film in ids_films_profile_seen:
-        profile_seen.append(Item.get_item(id_film))
+        if not filtering:
+            recommandations_dataset = pd.read_csv('./data/user_recommender.csv', keep_default_na=False)
+        else:
+            recommandations_dataset = pd.read_csv('./data/user_recommender_filter.csv', keep_default_na=False)
+
+        
+        for index, row in recommandations_dataset.iterrows():
+            if row['userId'] == user_id:
+                if row['type_r'] == 'cf':
+                    film_cf.append(Item.get_item(int(row['movieId'])))
+                elif row['type_r'] == 'cb':
+                    film_cb.append(Item.get_item(int(row['movieId'])))
+
+        films = Profile.get_films(profile)
+        user_ratings = ast.literal_eval(films)
+
+        for couple in user_ratings:
+            x = {}
+            x["film"] = Item.get_item(couple[0])
+            x["score"] = couple[1]
+            profile_seen.append(x)
 
     return film_cf, film_cb, profile_seen, interest, language
+    
