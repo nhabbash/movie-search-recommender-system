@@ -58,17 +58,3 @@ if not os.path.exists('src/web/data/parsed_dataset.csv'):
             if row['title'] and row['overview']:
                 writer.writerow([row['id'], row['title'], row['overview'], row['original_language'], spoken, 
                         genres, date, companies, row['vote_average'], row['vote_count'], weighted_vote, poster_ur])
-
-
-
-parsed_data = pd.read_csv('src/web/data/parsed_dataset.csv', delimiter=";", keep_default_na=False)
-# for language in parsed_data.spoken_languages.unique():
-#    print(language)
-# "Animation",en,
-
-for index, row in movie_dataset.iterrows():
-    if ('Animation' in row['genres']) and ('en' in row['spoken_languages']
-        ) and int(row['vote_count']) > 20:# or 'bg' in row['spoken_languages']):#   or 'Family' in row['genres']
-        print(row['id'])
-        print(row['title'])
-        print("")
