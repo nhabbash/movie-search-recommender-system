@@ -58,3 +58,17 @@ if not os.path.exists('src/web/data/parsed_dataset.csv'):
             if row['title'] and row['overview']:
                 writer.writerow([row['id'], row['title'], row['overview'], row['original_language'], spoken, 
                         genres, date, companies, row['vote_average'], row['vote_count'], weighted_vote, poster_ur])
+
+parsed_data = pd.read_csv('src/web/data/parsed_dataset.csv', delimiter=";")
+
+for _, row in parsed_data.iterrows():
+    try:
+        if "ro" in row['spoken_languages']: # or "zh" in row['spoken_languages']: # or "ru" in row['spoken_languages']:
+                # if 'Fantasy' in row['genres'] or 'Adventure' in row['genres']:
+                    print(row['id'])
+                    print(row['title'])
+                    print("")
+    except:
+            pass
+# "Fantasy, Adventure, Crime, Romance","ja, zh"
+#(32388, 4.0), (64847, 3.0), (400136, 2.0), (66105, 3.5), (83088, 1.5), (52103, 4.0), (32388, 5.0), (182030, 1.5), (163202, 3.5), (366170, 1.0), (44458, 3.0), (39962, 4.5), (406099, 1.5), (392882, 3.5), (83090, 3.5)"
