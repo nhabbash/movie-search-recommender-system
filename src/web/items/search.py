@@ -57,7 +57,7 @@ def query(query_text, profile, personalized, fuzzy, synonyms, pop, weight):
             must_queryset.extend([
                 Q({leaf_query_type:                                       # Query type
                         {"query": query_text, 
-                        "fields": ['title^5', 'overview^3', 'production_companies'],              # Boosting results in the title field compared to the overview field
+                        "fields": ['title^4', 'overview^3', 'production_companies'],              # Boosting results in the title field compared to the overview field
                         "fuzziness": fuzzyness_value,                            # Lets search for words with typos in them
                         "prefix_length": prefix_value,
                         "auto_generate_synonyms_phrase_query": synonyms_value,  # Generates words synonims if possible in the query (ny = new and york)

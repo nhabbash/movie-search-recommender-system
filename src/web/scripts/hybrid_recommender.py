@@ -85,7 +85,7 @@ def recommender_cb(user_metadata, user_bow, user_id):
             id_films.append(movies_user['id'].values[i])
             rank.append(cosine_similarities[i])
         if len(id_films) == 10 :
-	    break
+	        break
     final_movies = []
     for i in id_films:
         final_movies.append(movies_user.query("id == "+str(i)).head(1)['title'].values[0])
