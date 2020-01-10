@@ -1,34 +1,34 @@
 userId,movieId,title,type_r,rank
-999,1392,Born into Brothels,cf,5.0
-999,42783,Kissin' Cousins,cf,5.0
+999,44245,Triple Tap,cf,5.0
+999,82667,Five Bloody Graves,cf,5.0
+999,6182,The Dream Catcher,cf,5.0
+999,1024,Heavenly Creatures,cf,5.0
+999,81512,Many Rivers to Cross,cf,5.0
+999,4676,Grande école,cf,5.0
+999,1542,Office Space,cf,5.0
 999,991,The Man Who Fell to Earth,cf,5.0
-999,121,The Lord of the Rings: The Two Towers,cf,5.0
-999,4327,Charlie's Angels,cf,5.0
-999,1408,Cutthroat Island,cf,5.0
-999,3060,The Big Parade,cf,5.0
-999,1410,Dark Star,cf,5.0
-999,446850,Three heroes and the King of the Sea,cf,5.0
 999,1370,Rambo III,cf,5.0
-999,42326,They Died with Their Boots On,cb,0.18310704356840987
-999,388764,Bounty Hunters,cb,0.1817292584801558
-999,77528,Bounty Hunters,cb,0.16126741484370655
-999,129579,Arizona Colt Returns,cb,0.14973471316929865
-999,84496,Zig Zag,cb,0.14357773750530503
-999,31703,Death Ship,cb,0.14077555328472932
-999,387399,We Go On,cb,0.1352359736217463
-999,107319,Wheels of Fire,cb,0.13398333300757506
-999,42727,Women of the Prehistoric Planet,cb,0.1318356113493327
-999,315880,The Correspondence,cb,0.13154169469685184
-1000,1852,World Trade Center,cf,5.0
-1000,6183,Barefoot,cf,5.0
-1000,121,The Lord of the Rings: The Two Towers,cf,5.0
-1000,18497,Exiles,cf,5.0
-1000,85414,Brake,cf,5.0
-1000,1392,Born into Brothels,cf,5.0
-1000,269198,Sarajevo,cf,5.0
-1000,1410,Dark Star,cf,5.0
-1000,446850,Three heroes and the King of the Sea,cf,5.0
-1000,440143,The Babymoon,cf,5.0
+999,89,Indiana Jones and the Last Crusade,cf,5.0
+999,217763,Show Girl in Hollywood,cb,0.16405591600574707
+999,33665,Opening Night,cb,0.14884092073197014
+999,18773,Doppelganger,cb,0.14490547477224627
+999,49343,Dream Demon,cb,0.14431921080301943
+999,20115,Opera,cb,0.14194936953822068
+999,26710,My Baby's Daddy,cb,0.14030261533080304
+999,74899,The Fan,cb,0.14021754612747628
+999,49299,Dangerous Game,cb,0.13376264115959063
+999,45145,Johnny Suede,cb,0.13109046444065492
+999,37922,Unconditional Love,cb,0.1265164011274577
+1000,1024,Heavenly Creatures,cf,5.0
+1000,26694,Big River Man,cf,5.0
+1000,82667,Five Bloody Graves,cf,5.0
+1000,81512,Many Rivers to Cross,cf,5.0
+1000,991,The Man Who Fell to Earth,cf,5.0
+1000,4676,Grande école,cf,5.0
+1000,44245,Triple Tap,cf,5.0
+1000,2021,Jack & Sarah,cf,5.0
+1000,1250,Ghost Rider,cf,5.0
+1000,2642,Two Weeks Notice,cf,5.0
 1000,24169,Il cosmo sul comò,cb,0.9924547119923515
 1000,8951,Don't Think About It,cb,0.9924547119923515
 1000,24177,Holy Tongue,cb,0.9924547119923515
@@ -39,16 +39,16 @@ userId,movieId,title,type_r,rank
 1000,11813,Il soldato di ventura,cb,0.9924547119923515
 1000,4921,Vivere,cb,0.9924547119923515
 1000,33495,2061 - Un anno eccezionale,cb,0.9924547119923515
-1001,991,The Man Who Fell to Earth,cf,5.0
-1001,39398,Waiting for Armageddon,cf,5.0
-1001,1370,Rambo III,cf,5.0
-1001,26320,Taking Woodstock,cf,5.0
-1001,5961,Fanny & Alexander,cf,5.0
-1001,8923,Green Street Hooligans,cf,5.0
-1001,3489,88 Minutes,cf,5.0
-1001,1250,Ghost Rider,cf,5.0
-1001,6477,Alvin and the Chipmunks,cf,5.0
-1001,786,Almost Famous,cf,5.0
+1001,100450,Trapped in the Closet: Chapters 1-12,cf,5.0
+1001,58191,He's Worse than Me,cf,5.0
+1001,2058,Addicted to Love,cf,5.0
+1001,2048,"I, Robot",cf,5.0
+1001,3007,Woman in the Moon,cf,5.0
+1001,43464,Sinbad il marinaio,cf,5.0
+1001,4031,Going Places,cf,5.0
+1001,1988,A Mighty Heart,cf,5.0
+1001,1590,Copying Beethoven,cf,5.0
+1001,8948,The Pearl Color,cf,5.0
 1001,52655,Shooters,cb,0.19332976416217051
 1001,52748,The Skin Game,cb,0.17589220165494446
 1001,994,Straw Dogs,cb,0.17177693839316463
@@ -59,16 +59,16 @@ userId,movieId,title,type_r,rank
 1001,87906,Tuareg: Desert Warrior,cb,0.15417806505520573
 1001,28778,The Devil-Ship Pirates,cb,0.14702804590541002
 1001,36194,The Go-Between,cb,0.14456089948289036
-1002,991,The Man Who Fell to Earth,cf,5.0
-1002,1392,Born into Brothels,cf,5.0
-1002,85414,Brake,cf,5.0
-1002,89,Indiana Jones and the Last Crusade,cf,5.0
-1002,269198,Sarajevo,cf,5.0
-1002,45431,Devil in the Flesh,cf,5.0
-1002,875,Shanghai Express,cf,5.0
-1002,426,Vertigo,cf,5.0
-1002,121,The Lord of the Rings: The Two Towers,cf,5.0
-1002,2021,Jack & Sarah,cf,5.0
+1002,26694,Big River Man,cf,5.0
+1002,82667,Five Bloody Graves,cf,5.0
+1002,44245,Triple Tap,cf,5.0
+1002,4676,Grande école,cf,5.0
+1002,3509,A Scanner Darkly,cf,5.0
+1002,81512,Many Rivers to Cross,cf,5.0
+1002,1250,Ghost Rider,cf,5.0
+1002,1406,City Slickers,cf,5.0
+1002,1024,Heavenly Creatures,cf,5.0
+1002,1661,Gigantics,cf,5.0
 1002,19844,Kiss the Bride,cb,0.2646307777549792
 1002,55033,The Buttercream Gang,cb,0.2591127837938144
 1002,82134,I Want to Marry Ryan Banks,cb,0.2582121173088006
@@ -79,16 +79,16 @@ userId,movieId,title,type_r,rank
 1002,39541,Stolen Summer,cb,0.21346635706995476
 1002,16222,Whatever It Takes,cb,0.20751966394420535
 1002,26602,Summer Catch,cb,0.1978015787112015
-1003,85414,Brake,cf,5.0
-1003,991,The Man Who Fell to Earth,cf,5.0
+1003,82667,Five Bloody Graves,cf,5.0
+1003,4676,Grande école,cf,5.0
+1003,3509,A Scanner Darkly,cf,5.0
+1003,44245,Triple Tap,cf,5.0
+1003,81512,Many Rivers to Cross,cf,5.0
+1003,1024,Heavenly Creatures,cf,5.0
+1003,1250,Ghost Rider,cf,5.0
 1003,121,The Lord of the Rings: The Two Towers,cf,5.0
-1003,875,Shanghai Express,cf,5.0
-1003,54328,Ocean Heaven,cf,5.0
-1003,31522,A Woman Is a Woman,cf,5.0
-1003,45431,Devil in the Flesh,cf,5.0
-1003,1595,Land of Plenty,cf,5.0
-1003,1590,Copying Beethoven,cf,5.0
-1003,72356,Sade,cf,5.0
+1003,1661,Gigantics,cf,5.0
+1003,52891,Hitler's Kaput!,cf,5.0
 1003,19203,Graduation,cb,0.2428110504891515
 1003,352186,Good Kids,cb,0.2289276996819682
 1003,43710,Who's Minding The Mint?,cb,0.2231534274211657
@@ -99,16 +99,16 @@ userId,movieId,title,type_r,rank
 1003,9264,Poison Ivy,cb,0.18990545106983348
 1003,83001,Hollywood High,cb,0.18923930705118183
 1003,87826,Here Comes the Boom,cb,0.18410043127915135
-1004,39398,Waiting for Armageddon,cf,5.0
-1004,6183,Barefoot,cf,5.0
-1004,47610,Gravity,cf,5.0
-1004,1392,Born into Brothels,cf,5.0
-1004,85414,Brake,cf,5.0
-1004,18497,Exiles,cf,5.0
-1004,269198,Sarajevo,cf,5.0
-1004,440143,The Babymoon,cf,5.0
-1004,42718,The Pornographers,cf,5.0
-1004,32395,The Greatest,cf,5.0
+1004,875,Shanghai Express,cf,5.0
+1004,1420,Breakfast on Pluto,cf,5.0
+1004,1370,Rambo III,cf,5.0
+1004,121,The Lord of the Rings: The Two Towers,cf,5.0
+1004,165,Back to the Future Part II,cf,5.0
+1004,44245,Triple Tap,cf,5.0
+1004,89,Indiana Jones and the Last Crusade,cf,5.0
+1004,1954,The Butterfly Effect,cf,5.0
+1004,82667,Five Bloody Graves,cf,5.0
+1004,6037,Murder by Death,cf,5.0
 1004,14874,Try Seventeen,cb,0.1758101014431374
 1004,299143,The Gate of Heaven,cb,0.17218557925454245
 1004,103597,Americano,cb,0.14562617296445385
@@ -119,16 +119,16 @@ userId,movieId,title,type_r,rank
 1004,27944,Rain Fall,cb,0.11868584528342525
 1004,69765,Orders,cb,0.11312818179201287
 1004,3482,The Train,cb,0.11285284010214186
-1005,1852,World Trade Center,cf,5.0
-1005,26251,Wanda Sykes: Sick and Tired,cf,5.0
-1005,1499,Teenage Mutant Ninja Turtles III,cf,5.0
-1005,379,Miller's Crossing,cf,5.0
-1005,2078,The Pawnshop,cf,5.0
-1005,269198,Sarajevo,cf,5.0
-1005,47610,Gravity,cf,5.0
-1005,1392,Born into Brothels,cf,5.0
-1005,459,Sissi: The Fateful Years of an Empress,cf,5.0
-1005,6183,Barefoot,cf,5.0
+1005,121,The Lord of the Rings: The Two Towers,cf,5.0
+1005,875,Shanghai Express,cf,5.0
+1005,1250,Ghost Rider,cf,5.0
+1005,1370,Rambo III,cf,5.0
+1005,82667,Five Bloody Graves,cf,5.0
+1005,1420,Breakfast on Pluto,cf,5.0
+1005,3489,88 Minutes,cf,5.0
+1005,89,Indiana Jones and the Last Crusade,cf,5.0
+1005,44245,Triple Tap,cf,5.0
+1005,1837,The Secret,cf,5.0
 1005,36670,Never Say Never Again,cb,0.3731254419678645
 1005,12208,Casino Royale,cb,0.2648703873308703
 1005,206647,Spectre,cb,0.25926934026672327
@@ -139,16 +139,16 @@ userId,movieId,title,type_r,rank
 1005,253,Live and Let Die,cb,0.20352801377717517
 1005,681,Diamonds Are Forever,cb,0.19506391913709514
 1005,709,Licence to Kill,cb,0.18395224222955364
-1006,442750,The Hippopotamus,cf,5.0
-1006,2017,No Good Deed,cf,5.0
-1006,446850,Three heroes and the King of the Sea,cf,5.0
-1006,68637,Ducoboo,cf,5.0
-1006,1968,Fools Rush In,cf,5.0
-1006,52462,The Pet,cf,5.0
-1006,44458,Perhaps Love,cf,5.0
-1006,6538,Charlie Wilson's War,cf,5.0
-1006,140174,Rise of the Zombies,cf,5.0
-1006,1995,Lara Croft: Tomb Raider,cf,5.0
+1006,26271,Live Nude Girls,cf,5.0
+1006,4011,Beetlejuice,cf,5.0
+1006,1024,Heavenly Creatures,cf,5.0
+1006,40226,The Era of Vampires,cf,5.0
+1006,6037,Murder by Death,cf,5.0
+1006,31026,Distant,cf,5.0
+1006,1370,Rambo III,cf,5.0
+1006,44245,Triple Tap,cf,5.0
+1006,1250,Ghost Rider,cf,5.0
+1006,81847,The Dawn Patrol,cf,5.0
 1006,121572,Toad Road,cb,0.2107023375803388
 1006,45739,Tube Tales,cb,0.16979461109455096
 1006,61528,Born Equal,cb,0.1681699112626968
@@ -159,16 +159,16 @@ userId,movieId,title,type_r,rank
 1006,17775,Toronto Stories,cb,0.14380035686818898
 1006,359364,Human,cb,0.14226972714641126
 1006,61542,Funkytown,cb,0.14116118458911564
-1007,6183,Barefoot,cf,5.0
-1007,121,The Lord of the Rings: The Two Towers,cf,5.0
-1007,85414,Brake,cf,5.0
-1007,991,The Man Who Fell to Earth,cf,5.0
-1007,833,Umberto D.,cf,5.0
-1007,875,Shanghai Express,cf,5.0
-1007,74944,War of the Buttons,cf,5.0
-1007,54328,Ocean Heaven,cf,5.0
-1007,1901,In Good Company,cf,5.0
-1007,269198,Sarajevo,cf,5.0
+1007,4011,Beetlejuice,cf,5.0
+1007,89,Indiana Jones and the Last Crusade,cf,5.0
+1007,44245,Triple Tap,cf,5.0
+1007,1024,Heavenly Creatures,cf,5.0
+1007,265,Lili Marleen,cf,5.0
+1007,6182,The Dream Catcher,cf,5.0
+1007,2021,Jack & Sarah,cf,5.0
+1007,306,Beverly Hills Cop III,cf,5.0
+1007,1921,Sweet November,cf,5.0
+1007,26131,Straight From the Heart,cf,5.0
 1007,137801,Nobody Knows Sex,cb,0.18168636797280488
 1007,405670,Zoology,cb,0.145286109242884
 1007,33245,It's My Party,cb,0.13910040700269666
@@ -179,16 +179,16 @@ userId,movieId,title,type_r,rank
 1007,114189,Remembrance,cb,0.1327595608975609
 1007,41182,The Boxer,cb,0.13269229973788385
 1007,44513,Father and Son,cb,0.12903441954068579
-1008,41863,Sundome,cf,5.0
-1008,39231,Man's Favorite Sport?,cf,5.0
-1008,1266,Street Kings,cf,5.0
-1008,8208,The Man Who Knew Too Much,cf,5.0
-1008,7942,"Run, Fatboy, Run",cf,5.0
-1008,243,High Fidelity,cf,5.0
-1008,2071,Shattered,cf,5.0
 1008,991,The Man Who Fell to Earth,cf,5.0
-1008,3060,The Big Parade,cf,5.0
 1008,121,The Lord of the Rings: The Two Towers,cf,5.0
+1008,82667,Five Bloody Graves,cf,5.0
+1008,8290,Don't Look Now: We're Being Shot At,cf,5.0
+1008,3509,A Scanner Darkly,cf,5.0
+1008,44245,Triple Tap,cf,5.0
+1008,3489,88 Minutes,cf,5.0
+1008,1370,Rambo III,cf,5.0
+1008,81512,Many Rivers to Cross,cf,5.0
+1008,1277,Gloomy Sunday,cf,5.0
 1008,48116,Love Sick,cb,0.124123942845664
 1008,38907,West,cb,0.11873092678871987
 1008,118257,Room 666,cb,0.11494811870108976
@@ -199,16 +199,16 @@ userId,movieId,title,type_r,rank
 1008,333886,Lemonade,cb,0.09860483185759228
 1008,18421,Climates,cb,0.09725551062946641
 1008,141241,15,cb,0.09155066707145647
-1009,39398,Waiting for Armageddon,cf,5.0
-1009,269198,Sarajevo,cf,5.0
-1009,991,The Man Who Fell to Earth,cf,5.0
-1009,121,The Lord of the Rings: The Two Towers,cf,5.0
-1009,1370,Rambo III,cf,5.0
-1009,1410,Dark Star,cf,5.0
-1009,3509,A Scanner Darkly,cf,5.0
-1009,2071,Shattered,cf,5.0
-1009,26614,La Chienne,cf,5.0
-1009,243,High Fidelity,cf,5.0
+1009,26694,Big River Man,cf,5.0
+1009,44245,Triple Tap,cf,5.0
+1009,82667,Five Bloody Graves,cf,5.0
+1009,81512,Many Rivers to Cross,cf,5.0
+1009,52891,Hitler's Kaput!,cf,5.0
+1009,4676,Grande école,cf,5.0
+1009,1250,Ghost Rider,cf,5.0
+1009,1406,City Slickers,cf,5.0
+1009,1024,Heavenly Creatures,cf,5.0
+1009,89,Indiana Jones and the Last Crusade,cf,5.0
 1009,391004,His Girlfriend,cb,0.15354348600444792
 1009,16664,All About Lily Chou-Chou,cb,0.15227412501420828
 1009,297186,Fatal Frame,cb,0.14613718792401204
@@ -219,16 +219,16 @@ userId,movieId,title,type_r,rank
 1009,60604,Hanamizuki,cb,0.12114294428675469
 1009,283711,Red Amnesia,cb,0.12013983074331142
 1009,54178,The One-Armed Swordsman,cb,0.11461339732557467
-1010,134569,The House,cf,5.0
-1010,32666,Wild West Comedy Show: 30 Days & 30 Nights - Hollywood to the Heartland,cf,5.0
-1010,126420,On Top of the Whale,cf,5.0
-1010,2000,Aguirre: The Wrath of God,cf,5.0
-1010,5055,Ashes and Diamonds,cf,5.0
-1010,964,The Phantom of the Opera,cf,5.0
-1010,317,Grbavica: The Land of My Dreams,cf,5.0
-1010,69784,Anne of the Indies,cf,5.0
-1010,80831,Sang Pemimpi,cf,5.0
-1010,1807,Elephant,cf,5.0
+1010,1990,Paranoid Park,cf,5.0
+1010,5000,Forbidden Games,cf,5.0
+1010,750,Murder She Said,cf,5.0
+1010,17,The Dark,cf,5.0
+1010,3638,No Reservations,cf,5.0
+1010,101904,Through the Forest,cf,5.0
+1010,100450,Trapped in the Closet: Chapters 1-12,cf,5.0
+1010,26700,Nocturna,cf,5.0
+1010,228,The Blue Angel,cf,5.0
+1010,590,The Hours,cf,5.0
 1010,36606,Full Tilt Boogie,cb,0.2351150449967614
 1010,117773,Frozen Assets,cb,0.2092657125474529
 1010,90726,Hate for Hate,cb,0.19451222850518313
