@@ -16,11 +16,11 @@ $ cd item-recommendation-retrieval-system/src
 ## First time setup
 ```sh
 $ sudo docker-compose build 
+$ sudo docker-compose up
 $ sudo docker exec -it item-retrieval-web bash # Entering the web container
 $ python manage.py makemigrations 
 $ python manage.py migrate
 $ python init_data.py (items/profiles/"") # Initialize data (creates superuser, clears and populates DB, refreshes index)
-$ sudo docker-compose up
 ```
 
 ## Starting app 
