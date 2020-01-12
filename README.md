@@ -13,18 +13,25 @@ $ git clone https://github.com/dodicin/item-recommendation-retrieval-system
 $ cd item-recommendation-retrieval-system/src
 ```
 
-## Starting the containers
+## First time setup
 ```sh
 $ sudo docker-compose build 
-$ sudo docker-compose up
-```
-## Starting app
-```sh
 $ sudo docker exec -it item-retrieval-web bash # Entering the web container
 $ python manage.py makemigrations 
 $ python manage.py migrate
 $ python init_data.py (items/profiles/"") # Initialize data (creates superuser, clears and populates DB, refreshes index)
+$ sudo docker-compose up
 ```
+
+## Starting app 
+```sh
+$ sudo docker-compose up 
+```
+
+## Resources 
+* Search Engine: localhost:8000/items
+* Recommender System: localhost:8000/items/recommender
+
 
 ## Authors
 
