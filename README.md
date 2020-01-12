@@ -17,6 +17,7 @@ $ cd item-recommendation-retrieval-system/src
 ```sh
 $ sudo docker-compose build 
 $ sudo docker-compose up
+## in another terminal
 $ sudo docker exec -it item-retrieval-web bash # Entering the web container
 $ python manage.py makemigrations 
 $ python manage.py migrate
