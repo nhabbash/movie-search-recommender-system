@@ -1,9 +1,5 @@
 # Item Recommendation and Retrieval System
->TODO
-
-## Brief
-
-TODO
+> The following project implemented a custom search engine and a recommender systems using three dif- ferent methodologies, personalized search recommen- dations, content-based recommendations and collaborative filtering recommendations.
 
 ## Prerequisites
 
@@ -16,26 +12,19 @@ TODO
 $ git clone https://github.com/dodicin/item-recommendation-retrieval-system
 $ cd item-recommendation-retrieval-system/src
 ```
-## Structure
-
-
 
 ## Starting the containers
 ```sh
 $ sudo docker-compose build 
 $ sudo docker-compose up
 ```
-
-## Utilities
+## Starting app
 ```sh
-$ sudo docker-compose run web python3 manage.py startapp {app_name} # Creates {app_name} in the project (after building)
 $ sudo docker exec -it item-retrieval-web bash # Entering the web container
-$ python manage.py createsuperuser # Creating super user 
 $ python manage.py makemigrations 
 $ python manage.py migrate
 $ python init_data.py (items/profiles/"") # Initialize data (creates superuser, clears and populates DB, refreshes index)
 ```
-
 
 ## Authors
 

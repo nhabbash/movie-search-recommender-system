@@ -154,9 +154,15 @@ def recommendation(profile, filtering):
         for _, row in recommandations_dataset.iterrows():
             if row['userId'] == user_id:
                 if row['type_r'] == 'cf':
-                    film_cf.append(Item.get_item(int(row['movieId'])))
+                    x = {}
+                    x["film"] = Item.get_item(int(row['movieId']))
+                    x["score"] = row['rank']
+                    film_cf.append(x)
                 elif row['type_r'] == 'cb':
-                    film_cb.append(Item.get_item(int(row['movieId'])))
+                    x = {}
+                    x["film"] = Item.get_item(int(row['movieId']))
+                    x["score"] = row['rank']
+                    film_cb.append(x)
 
         films = Profile.get_films(profile)
         user_ratings = ast.literal_eval(films)

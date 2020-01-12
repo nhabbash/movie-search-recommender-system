@@ -146,19 +146,21 @@
                                 <th>Genres</th>
                                 <th>Average vote</th>
                                 <th>Vote count</th> 
+                                <th>Similarity</th> 
                             </tr>
                         </thead>
                         <tbody>
                             {% if film_cb %}
-                                {% for film in film_cb %}
+                                {% for item in film_cb %}
                                     <tr>
-                                        <td><img class="responsive-img" src= "{{film.poster_path}}" /></td>
-                                        <td>{{ film.title }}</td>
-                                        <td class="overview">{{ film.overview }}</td>
-                                        <td>{{ film.spoken_lan }}</td>
-                                        <td>{{ film.genres }}</td>
-                                        <td>{{ film.vote_average }}</td>
-                                        <td>{{ film.vote_count }}</td>
+                                        <td><img class="responsive-img" src= "{{item.film.poster_path}}" /></td>
+                                        <td>{{ item.film.title }}</td>
+                                        <td class="overview">{{ item.film.overview }}</td>
+                                        <td>{{ item.film.spoken_lan }}</td>
+                                        <td>{{ item.film.genres }}</td>
+                                        <td>{{ item.film.vote_average }}</td>
+                                        <td>{{ item.film.vote_count }}</td>
+                                        <td>{{ item.score }}</td>
                                         </tr>
                                     <tr>
                                 {% endfor %}
@@ -182,19 +184,21 @@
                                 <th>Genres</th>
                                 <th>Average vote</th>
                                 <th>Vote count</th> 
+                                <th>Inferred rating</th> 
                             </tr>
                         </thead>
                         <tbody>
                             {% if film_cf %}
-                                {% for film in film_cf %}
+                                {% for item in film_cf %}
                                     <tr>
-                                        <td><img class="responsive-img" src= "{{film.poster_path}}" /></td>
-                                        <td>{{ film.title }}</td>
-                                        <td class="overview">{{ film.overview }}</td>
-                                        <td>{{ film.spoken_lan }}</td>
-                                        <td>{{ film.genres }}</td>
-                                        <td>{{ film.vote_average }}</td>
-                                        <td>{{ film.vote_count }}</td>
+                                        <td><img class="responsive-img" src= "{{item.film.poster_path}}" /></td>
+                                        <td>{{ item.film.title }}</td>
+                                        <td class="overview">{{ item.film.overview }}</td>
+                                        <td>{{ item.film.spoken_lan }}</td>
+                                        <td>{{ item.film.genres }}</td>
+                                        <td>{{ item.film.vote_average }}</td>
+                                        <td>{{ item.film.vote_count }}</td>
+                                        <td>{{ item.score }}</td>
                                         </tr>
                                     <tr>
                                 {% endfor %}
