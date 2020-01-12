@@ -151,7 +151,7 @@ def recommendation(profile, filtering):
             recommandations_dataset = pd.read_csv('./data/user_recommender_filter.csv', keep_default_na=False)
 
         
-        for index, row in recommandations_dataset.iterrows():
+        for _, row in recommandations_dataset.iterrows():
             if row['userId'] == user_id:
                 if row['type_r'] == 'cf':
                     film_cf.append(Item.get_item(int(row['movieId'])))
