@@ -29,9 +29,11 @@ $ sudo docker-compose up
 ```
 
 ## Resources 
-* Search Engine: localhost:8000/items
-* Recommender System: localhost:8000/items/recommender
+* Search Engine: `localhost:8000/items`
+* Recommender System: `localhost:8000/items/recommender`
 
+## Notes
+Users are in `src\web\data\users.csv`
 
 ## Authors
 
