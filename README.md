@@ -1,5 +1,5 @@
 # Item Recommendation and Retrieval System
-> The following project implemented a custom search engine and a recommender systems using three dif- ferent methodologies, personalized search recommen- dations, content-based recommendations and collaborative filtering recommendations.
+> The following project implemented a custom search engine and a recommender systems using three different methodologies, personalized search recommendations, content-based recommendations and collaborative filtering recommendations.
 
 ## Prerequisites
 
