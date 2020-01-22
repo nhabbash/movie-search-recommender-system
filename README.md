@@ -1,4 +1,4 @@
-# Item Recommendation and Retrieval System
+# Movie Search and Recommender System
 > The following project implemented a custom search engine and a recommender systems using three different methodologies, personalized search recommendations, content-based recommendations and collaborative filtering recommendations.
 
 ## Prerequisites
