@@ -37,6 +37,6 @@ Users are in `src\web\data\users.csv`
 
 ## Authors
 
-* [**Nassim Habbash**](https://github.com/dodicin) (808292)
+* [**Nassim Habbash**](https://github.com/nhabbash) (808292)
 * [**Ricardo Matamoros**](https://github.com/ricardoanibalmatamorosaragon) (807450)
 * [**Giacomo Villa**](https://github.com/Villone96) (807462)
