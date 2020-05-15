@@ -1,8 +1,11 @@
 # Movie Search and Recommender System
-> The following project implemented a custom search engine and a recommender systems using three different methodologies, personalized search recommendations, content-based recommendations and collaborative filtering recommendations.
+> Movie search engine and recommender system with ElasticSearch, Django and scikit-learn
+
+## Overview
+The following project implemented a custom search engine and a recommender systems for retrieving movies and recommending new ones based on a personal scoring list.
+The recommendations are made through three different methodologies, personalized search, content-based similarity and collaborative filtering.
 
 ## Prerequisites
-
 * Python 3.7 or higher
 * Docker
 * Docker Compose
