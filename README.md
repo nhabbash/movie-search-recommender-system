@@ -5,6 +5,9 @@
 The following project implemented a custom search engine and a recommender systems for retrieving movies and recommending new ones based on a personal scoring list.
 The recommendations are made through three different methodologies, personalized search, content-based similarity and collaborative filtering.
 
+#### [Documentatation](docs/report.pdf)
+#### [Presentation](docs/presentation.pdf)
+
 ## Prerequisites
 * Python 3.7 or higher
 * Docker
